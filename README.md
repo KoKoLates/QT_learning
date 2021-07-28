@@ -13,9 +13,8 @@ get the path of a file :
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenText"),"",tr("Text(*.txt)"));
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Image(*.png *.jpg *.jepg)"));
 ```
-<br>
 read and display .png image:
-```cpp
+```
 QPixmap icon("imagePath");
 ui->label->setPixmap(icon.scaled(ui->label->width(),ui->label->height(),Qt::KeepAspectRatio));
 ```
