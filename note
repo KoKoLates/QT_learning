@@ -43,38 +43,3 @@ void MainWindow::switchPage(){
   else if(button == ui->Button_3)
     ui->stackedWidget->setCurrentIndex(2);
 }
-
-=============================== File I/O  =========================================
-
-QString filePath = QFileDialog::getOpenFileName(this,tr("OpenText"),"",tr("Text(*.txt)"));
-QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Image(*.png *.jpg *.jepg)"));
-//get the path of the file user selects
-//should #include <QFileDialog> in the header file
-//QString filePath; could declare in the class MainWindow{private:}; so that could be use in any function include the header file
-
-//the code of reading text file
-QFile fileRead(filePath);  //#include <QFile> 
-if(fileRead.open(QIODevice::ReadOnly)){
-  QTextStream input(&fileRead);  //#include <QTextStream>
-  input.setCodec("UTF-8");
-  while(!input.atEnd()){
-    QString line = input.readline();
-    ui->textBrowser->append(line.toStdString().c_str());
-  }
-  fileRead.close();
-}
-
-//the code of writing text file
-QString UserInput = ui->lineEdit->text();
-QFile fileWrite(filePath);
-if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
-  QTextStream output(&fileWrite);
-  output<<UserInput<<Qt::endl;
-  fileWrite.close();
-}
-
-//read and display *.png image
-QPixmap icon("imagePath");
-ui->label->setPixmap(icon.scaled(ui->label->width(),ui->label->height(),Qt::KeepAspectRatio));
-
-==================================================================================
