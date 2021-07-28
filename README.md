@@ -15,7 +15,7 @@ QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Imag
 ```
 <br>
 reading text file:
-```
+```cpp
 QFile fileRead(filePath);  //#include <QFile> 
 if(fileRead.open(QIODevice::ReadOnly)){
   QTextStream input(&fileRead);  //#include <QTextStream>
@@ -28,8 +28,8 @@ if(fileRead.open(QIODevice::ReadOnly)){
 }
 ```
 <br>
-writing text file
-```
+writing text file:
+```cpp
 QString UserInput = ui->lineEdit->text();
 QFile fileWrite(filePath);
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
@@ -39,8 +39,8 @@ if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
 }
 ```
 <br>
-read and display *.png image:
-```
+read and display .png image:
+```cpp
 QPixmap icon("imagePath");
 ui->label->setPixmap(icon.scaled(ui->label->width(),ui->label->height(),Qt::KeepAspectRatio));
 ```
