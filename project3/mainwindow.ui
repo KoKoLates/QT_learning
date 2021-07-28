@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>357</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Yu Gothic UI Semibold</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="MainTitle">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>122</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Yu Gothic UI Semibold</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ordering System</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>104</width>
+      <height>127</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>餐點</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="Meal">
+       <property name="text">
+        <string>主食</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Drink">
+       <property name="text">
+        <string>飲料</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Dessert">
+       <property name="text">
+        <string>甜點</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>210</y>
+      <width>101</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Yu Gothic UI Semibold</family>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>付費方式</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QRadioButton" name="Cash">
+       <property name="text">
+        <string>現金 $10off</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="Card">
+       <property name="text">
+        <string>刷卡 10%off</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>10</y>
+      <width>376</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="Detail">
+       <property name="text">
+        <string>點餐明細</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Cancel">
+       <property name="text">
+        <string>全部取消</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Ensure">
+       <property name="text">
+        <string>確認付款</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="PriceStatus">
+       <property name="text">
+        <string>Payment method</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>70</y>
+      <width>401</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="omurice_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="omurice_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>蛋包飯 $90</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Omurice">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="pasta_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 2</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="pasta_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>義大利麵 $110</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Pasta">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_3" native="true">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="risotto_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 3</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="risotto_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>燉飯 $110</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Risotto">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="noodle_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 4</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="noodle_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>牛肉麵 $130</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Noodle">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="widget_5" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="blacktea_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 5</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="blavktea_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>紅茶 $15</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="BlackTea">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_6" native="true">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="greentea_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 6</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="greentea_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>綠茶 $15</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="GreenTea">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_7" native="true">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="cola_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 7</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="cola_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>可樂 $20</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Cola">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_8" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="sprite_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 8</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="sprite_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>雪碧 $20</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Sprite">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_9" native="true">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>120</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="bubble_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 9</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="bubble_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>珍珠奶茶 $50</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Bubble">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QWidget" name="widget_10" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="puff_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 10</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="puff_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>泡芙 $35</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Puff">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_11" native="true">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="sdumpling_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 11</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="sdumpling_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>炸湯圓 $35</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="SDumpling">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_12" native="true">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>0</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="cheese_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 12</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="cheese_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>乳酪蛋糕 $45</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Cheese">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_13" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="tiramisu_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 13</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="tiramisu_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>提拉米蘇 $45</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Tiramisu">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_14" native="true">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>120</y>
+        <width>131</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="haagen_pic">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>131</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Picture 14</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="haggen_tit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>60</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Yu Gothic UI Semibold</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>哈根達斯 $55</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="Haagen">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>550</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
