@@ -43,3 +43,24 @@ void MainWindow::switchPage(){
   else if(button == ui->Button_3)
     ui->stackedWidget->setCurrentIndex(2);
 }
+
+reading text file:
+QFile fileRead(filePath);  //#include <QFile> 
+if(fileRead.open(QIODevice::ReadOnly)){
+  QTextStream input(&fileRead);  //#include <QTextStream>
+  input.setCodec("UTF-8");
+  while(!input.atEnd()){
+    QString line = input.readline();
+    ui->textBrowser->append(line.toStdString().c_str());
+  }
+  fileRead.close();
+}
+
+writing text file:
+QString UserInput = ui->lineEdit->text();
+QFile fileWrite(filePath);
+if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
+  QTextStream output(&fileWrite);
+  output<<UserInput<<Qt::endl;
+  fileWrite.close();
+}
