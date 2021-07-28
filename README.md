@@ -18,6 +18,29 @@ read and display .png image:
 QPixmap icon("imagePath");
 ui->label->setPixmap(icon.scaled(ui->label->width(),ui->label->height(),Qt::KeepAspectRatio));
 ```
+reading text file:
+```
+QFile fileRead(filePath);  //#include <QFile> 
+if(fileRead.open(QIODevice::ReadOnly)){
+  QTextStream input(&fileRead);  //#include <QTextStream>
+  input.setCodec("UTF-8");
+  while(!input.atEnd()){
+    QString line = input.readline();
+    ui->textBrowser->append(line.toStdString().c_str());
+  }
+  fileRead.close();
+}
+```
+writing text file:
+```
+QString UserInput = ui->lineEdit->text();
+QFile fileWrite(filePath);
+if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
+  QTextStream output(&fileWrite);
+  output<<UserInput<<Qt::endl;
+  fileWrite.close();
+}
+```
 [lesson2](https://www.notion.so/Qt-Lesson-2-File-I-O-f3b006a408b84082add6f63f37366dd3)
 ## project3
 Ordering System with StackedWidget, mutilpie window, File I/O access<br>
