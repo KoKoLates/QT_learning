@@ -14,31 +14,6 @@ QString filePath = QFileDialog::getOpenFileName(this,tr("OpenText"),"",tr("Text(
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Image(*.png *.jpg *.jepg)"));
 ```
 <br>
-reading text file:
-```cpp
-QFile fileRead(filePath);  //#include <QFile> 
-if(fileRead.open(QIODevice::ReadOnly)){
-  QTextStream input(&fileRead);  //#include <QTextStream>
-  input.setCodec("UTF-8");
-  while(!input.atEnd()){
-    QString line = input.readline();
-    ui->textBrowser->append(line.toStdString().c_str());
-  }
-  fileRead.close();
-}
-```
-<br>
-writing text file:
-```cpp
-QString UserInput = ui->lineEdit->text();
-QFile fileWrite(filePath);
-if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
-  QTextStream output(&fileWrite);
-  output<<UserInput<<Qt::endl;
-  fileWrite.close();
-}
-```
-<br>
 read and display .png image:
 ```cpp
 QPixmap icon("imagePath");
