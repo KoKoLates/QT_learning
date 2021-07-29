@@ -40,3 +40,14 @@ MainWindow::MainWindow(QWidget *parent) :
   connect(ui->Button_3,&QPushButton::clicked,this,&MainWindow::switchPage);
   //connect the Button and switch function
 }
+
+//define the function
+void MainWindow::switchPage(){
+  QPushButton *button = qobject_cast<QPushButton*>(sender()); //obtain the pointer of the button USER clicked
+  if(button == ui->Button_1)
+    ui->stackedWidget->setCurrentIndex(0);
+  else if(button == ui->Button_2)
+    ui->stackedWidget->setCurrentIndex(1);
+  else if(button == ui->Button_3)
+    ui->stackedWidget->setCurrentIndex(2);
+}
