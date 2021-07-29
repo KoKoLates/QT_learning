@@ -80,14 +80,24 @@ if(fileRead.open(QIODevice::ReadOnly)){
 }
 ```
 ### File Write
+Using QStringList as the UserInput
 ```cpp
 QFile fileWrite(filePath);
-   QStringList lines;
-   lines<<"date,"<<"price,";
-   if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
+QStringList lines;
+lines<<"string1, "<<"string2,";  // each string has to end at commas(,)
+if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
     for(int i=0;i<lines.size();i++){
         fileWrite.write(lines[i].toStdString().c_str());
     }
     fileWrite.close();
  }
  ``` 
+ Using QString as the UserInput
+ ```cpp
+ QFile fileWrite(filePath);
+if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
+    fileWrite,write(QString);
+FileWrite.close();
+}
+//using commas(,) to separate in the string
+```
