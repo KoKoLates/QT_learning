@@ -8,16 +8,4 @@ Ordering System with PushButton, CheckBox, RadioBox
 Simple Text I/O with File I/O access 
 [(lesson2)](https://www.notion.so/Qt-Lesson-2-File-I-O-f3b006a408b84082add6f63f37366dd3)
 ## project3
-Ordering System with StackedWidget, mutilpie window, File I/O access<br>
-## note
->file I/O
->>Text file
->>>Read
->>>Write
->file I/O
->>Image file
->>>Read
->file I/O
->>CSV file
->>>Read
->>>Wtite
+Ordering System with StackedWidget, mutilpie window, File I/O access
