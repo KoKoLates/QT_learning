@@ -14,8 +14,10 @@ Ordering System with StackedWidget, mutilpie window, File I/O access<br>
 >>Text file
 >>>Read
 >>>Write
+>file I/O
 >>Image file
 >>>Read
+>file I/O
 >>CSV file
 >>>Read
 >>>Wtite
