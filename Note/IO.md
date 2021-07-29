@@ -58,3 +58,36 @@ QIODevice::Text //When reading, the end-of-line terminators are translated to '\
 QPixmap icon("imagePath");
 ui->label->setPixmap(icon.scaled(ui->label->width(),ui->label->height(),Qt::KeepAspectRatio));
 ```
+## .CSV file
+A Common-Separated values(CSV) file is a delimited text file that use a comma to separate values.Each line of the file is a data record.Each record consists of one or more fields, separated by commas.
+### File Read
+```cpp
+QFile fileRead(filePath);
+QStringList lines;
+if(fileRead.open(QIODevice::ReadOnly)){
+    QTextStream input(&fileRead);
+    while(!input.atEnd()){
+        lines.push_back(fileRead.readLine());
+    }
+    for(int j=0;j<lines.size();j++){
+        QString line = lines.at(j);
+        QStringList split = line.split(",");
+        for(int col=0;col<split.size();col++){
+            ui->textBrowser->append(split.at(col));
+        }
+    }
+    fileRead.close();
+}
+```
+### File Write
+```cpp
+QFile fileWrite(filePath);
+   QStringList lines;
+   lines<<"date,"<<"price,";
+   if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
+    for(int i=0;i<lines.size();i++){
+        fileWrite.write(lines[i].toStdString().c_str());
+    }
+    fileWrite.close();
+ }
+ ``` 
