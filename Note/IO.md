@@ -43,7 +43,7 @@ if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
 }
 ```
 ### Member type document
-QIODevice::OpenMode [QIODevice Class](https://doc.qt.io/qt-5/qiodevice.html#QIODevice)
+QIODevice :: OpenMode [QIODevice Class](https://doc.qt.io/qt-5/qiodevice.html#QIODevice)
 ```cpp
 QIODevice::ReadOnly // open for reading
 QIODevice::WriteOnly // open for writing, this mode implies Truncate unless combined with Append
