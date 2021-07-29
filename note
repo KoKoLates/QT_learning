@@ -8,6 +8,13 @@ this->ui->radiobutton->setAutoExclusive(bool);
 //to change the defalt of radiobutton
 //remember to switch it back to the defalt
 
+TO that the QT display in high DPI without ui ditortion, add this code in the main.cpp
+QApplication::setAttribution(QT::AA_EnableHighDpiScaling);
+
+Modifying the defalt of radiobutoon, to set the status or checked of it <br>
+Remenber to set it back to (true) to get the property if radiobutton
+this->ui->radiobutton->setAutoExclusive(bool);
+
 //QMessage question box
 QmessageBox::StandardButton reply = QMessageBox::question(this,"WindowTitle","Question",QMessage::Yes | QMessage::No);
 if(reply == QMessage::Yes){
