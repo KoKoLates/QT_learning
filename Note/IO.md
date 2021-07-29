@@ -42,6 +42,16 @@ if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
   fileWrite.close();
 }
 ```
+### Member type document
+QIODevice::OpenMode [QIODevice Class](https://doc.qt.io/qt-5/qiodevice.html#QIODevice)
+```cpp
+QIODevice::ReadOnly // open for reading
+QIODevice::WriteOnly // open for writing, this mode implies Truncate unless combined with Append
+QIODevice::ReadWrite // open for reading and writing
+QIODevice::Append // open in append mode so that the data is written to the end of the file
+QIODevice::Text //When reading, the end-of-line terminators are translated to '\n'. 
+                //When writing, the end-of-line terminators are translated to the local encoding,
+```
 ## Image file
 ### Read and show in the label
 ```cpp
