@@ -16,3 +16,13 @@ Initialize the variable of constructor in `paintwidget.cpp`:
 scribbling = false;
 ```
 
+### Fix paintEvent() function
+```cpp
+void PaintWidget::paintEvent(QPaintEvent *){
+    QPainter painter(this);
+    if(scribbling == true ) painter.drawImage(0,0,tempImage);
+    // if it's drawing, the mouse is moving with clicked, then paint on tempImage
+    else painter.drawImage(0,0,image);
+    // if the mouse is release, then store in the image
+}
+```
