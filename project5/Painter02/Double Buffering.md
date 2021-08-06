@@ -33,12 +33,12 @@ Changing the contents of the mousePressEvent and mouseReleaseEvent:
 void PaintWidget::mousePressEvent(QMouseEvent *event){
     if(event->buttons() == Qt::LeftButton){
         lastPoint = event->pos();
-        scribbling = true;
+        scribbling = true; //marking
     }
 }
 
-void PaintWidget::mouseReleaseEvent(QMouseEvent *){
-    scribbling = false;
+void PaintWidget::mouseReleaseEvent(QMouseEvent *event){
+    scribbling = false; //cancel the mark
     if(type != Pen) paint(image);
 }
 ```
