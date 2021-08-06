@@ -16,7 +16,7 @@ Initialize the variable of constructor in `paintwidget.cpp`:
 scribbling = false;
 ```
 
-### Fix paintEvent() function
+### Fix paintEvent( ) function
 ```cpp
 void PaintWidget::paintEvent(QPaintEvent *){
     QPainter painter(this);
