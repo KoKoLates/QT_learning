@@ -45,3 +45,4 @@ void PaintWidget::mouseReleaseEvent(QMouseEvent *event){
 When the left mouse button is pressed, then marking the drawing, and when the button is released, we cancel the mark.
 
 ### Double Buffers
+When drawing, all contents would drawn on a drawing device, and then painting entire image to the part for display. Using double-buffers can avoid flickering during display. Starting from Qt 4.0, all painting module of QWidget components are automatically possess double buffering. So that it's generally not necessary to use double buffering code int the `paintEvent()` function to avoid flickering.
