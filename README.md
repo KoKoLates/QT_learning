@@ -1,7 +1,8 @@
 # QT_learning
 some project about learning qt
 
-## project1 <r>Ordering System with PushButton, CheckBox, RadioBox 
+## project1 
+Ordering System with PushButton, CheckBox, RadioBox 
 [(lesson1)](https://www.notion.so/Qt-Lesson-1-HelloWorld-06030c9831854e3489f8d89e70b03615)
 
 ## project2
