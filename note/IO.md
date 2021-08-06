@@ -11,7 +11,7 @@ Get the path of existed file by storing it as a QString data. And ones can then 
 ```cpp
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenText"),"",tr("Text(*.txt *.csv)"));
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Image(*.png *.jpg *.jepg)"));
-QString filePath = "Path"; // directlt indicate the file path
+QString filePath = "Path"; // directly indicate the file path
 ```
 ## Text file
 ### File Read
@@ -84,7 +84,7 @@ Using QStringList as the UserInput
 ```cpp
 QFile fileWrite(filePath);
 QStringList lines;
-lines<<"string1, "<<"string2,";  // each string has to end at commas(, )
+lines<<"string1, "<<"string2,";  // each string has to end at commas
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
     for(int i=0; i<lines.size(); i++){
         fileWrite.write(lines[i].toStdString().c_str());
@@ -94,7 +94,7 @@ if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
  ``` 
  Using QString as the UserInput
  ```cpp
-//using commas(, ) to separate in the string
+//using commas to separate in the string
  QFile fileWrite(filePath);
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
     fileWrite,write(QString);
