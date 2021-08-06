@@ -94,10 +94,10 @@ if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
  ``` 
  Using QString as the UserInput
  ```cpp
+//using commas(, ) to separate in the string
  QFile fileWrite(filePath);
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
     fileWrite,write(QString);
 FileWrite.close();
 }
-//using commas(, ) to separate in the string
 ```
