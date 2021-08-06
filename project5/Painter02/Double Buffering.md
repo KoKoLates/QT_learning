@@ -43,3 +43,5 @@ void PaintWidget::mouseReleaseEvent(QMouseEvent *event){
 }
 ```
 When the left mouse button is pressed, then marking the drawing, and when the button is released, we cancel the mark.
+
+### Double Buffers
