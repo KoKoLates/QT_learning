@@ -10,7 +10,9 @@ QImage tempImage;
 bool scribbling;
 ```
 
-### Initialize the constructor of `paintwidget.cpp`
+### Initialize the constructor
+Initialize the variable of constructor in `paintwidget.cpp`:
 ```cpp
 scribbling = false;
 ```
+
