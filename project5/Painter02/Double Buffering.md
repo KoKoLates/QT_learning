@@ -16,7 +16,7 @@ Initialize the variable of constructor in `paintwidget.cpp`:
 scribbling = false;
 ```
 
-### Fix paintEvent( ) function
+### Fix paintEvent function
 ```cpp
 void PaintWidget::paintEvent(QPaintEvent *){
     QPainter painter(this);
@@ -26,3 +26,20 @@ void PaintWidget::paintEvent(QPaintEvent *){
     // if the mouse is release, then store in the image
 }
 ```
+
+### Fix the QMouseEvent
+Changing the contents of the mousePressEvent and mouseReleaseEvent:
+```cpp
+void PaintWidget::mousePressEvent(QMouseEvent *event){
+    if(event->buttons() == Qt::LeftButton){
+        lastPoint = event->pos();
+        scribbling = true;
+    }
+}
+
+void PaintWidget::mouseReleaseEvent(QMouseEvent *){
+    scribbling = false;
+    if(type != Pen) paint(image);
+}
+```
+When the left mouse button is pressed, then marking the drawing, and when the button is released, we cancel the mark.
