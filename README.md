@@ -10,7 +10,7 @@ Simple Text I/O with File I/O access
 [(lesson2)](https://www.notion.so/Qt-Lesson-2-File-I-O-f3b006a408b84082add6f63f37366dd3)
 
 ## project3
-Ordering System with StackedWidget, mutilpie window, File I/O access
+Ordering System with StackedWidget, Mutilpie window, File I/O access
 
 ## project4
 QMouseEvent, mousePressEvent, mouseMoveEvent, mouseReleaseEvent
