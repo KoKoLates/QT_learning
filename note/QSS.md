@@ -35,3 +35,15 @@ void CustomWidget::paintEvent(QPaintEvent *event)
     CustomWidget::paintEvent(event);
 }
 ```
+### Paint Event
+```cpp
+void CustomWidget::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+
+    QPainter p(this);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.drawRect(rect());
+}
+```
