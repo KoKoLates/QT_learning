@@ -14,3 +14,9 @@ myWidget->setPalette(pal);
 myWidget->show();
 ```
 ### Style Sheet
+```cpp
+QWidget *myWidget = new QWidget(this);
+myWidget->setGeometry(0,0,this->width(),this->height());
+myWidget->setStyleSheet("background-color:black");
+myWidget->show();
+```
