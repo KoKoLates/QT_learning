@@ -1,6 +1,6 @@
 # Advanced Ui
 
-## QWidget Background Color Setting
+## QWidget Background
 ### QPalette
 ```cpp
 QWidget *myWidget = new QWidget(this);
@@ -13,3 +13,4 @@ myWidget->setAutoFillBackground(true);
 myWidget->setPalette(pal);
 myWidget->show();
 ```
+### Style Sheet
