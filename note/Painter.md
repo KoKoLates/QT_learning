@@ -8,8 +8,16 @@ QPainter painter(qPaintDevice);
 ```
 `qPaintDevice` is indicated to the subclass of QPaintDevice, such as QWidget, QImage, QPicture and QPrinter. And if it's graphic components, the `paintEvent()` of the QWidget is usually redefined. When the Paint Device needs to be repainted, such as when the component appear, overwritten and reappear. You could use `repaint()` or `update()` function to trigger the `paintEvent()` to handle that event.<br>
 <br>
-The members of the QPainter class: `QPen`, `QBrush`, `QFont`, `QImage`, `QPicture`, `QPixmap` and `QBitmap`.
+The members of the QPainter class: `QBrush`, `QPen`, `QFont`, `QImage`, `QPicture`, `QPixmap` and `QBitmap`.
+### QBrush
+QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.<br>
+<br>
+`style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br>
+<br>
+`color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is `Qt::GlobalColor`, or it can be any QColor object.<br>
+<br>
+`gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: `QLinearGradient, QConicalGradient and QRadialGradient`, they are all subclasses of QGradient
 ### QPen
 Used to draw the edges of geometric figures, composed of parameters such as color, width, line style. QPen contains different properties such as brush, width, style, capStyle and joinStyle.
-#### brush()
-`brush()`
+#### Brush
+`brush()` 
