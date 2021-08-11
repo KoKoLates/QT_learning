@@ -10,13 +10,13 @@ QPainter painter(qPaintDevice);
 <br>
 The members of the QPainter class: `QBrush`, `QPen`, `QFont`, `QImage`, `QPicture`, `QPixmap` and `QBitmap`.
 ### QBrush
-QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.<br>
-<br>
-`style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br>
-<br>
-`color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is `Qt::GlobalColor`, or it can be any QColor object.<br>
-<br>
-`gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: `QLinearGradient, QConicalGradient and QRadialGradient`, they are all subclasses of QGradient
+QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.
+#### Style
+`style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.
+#### Color
+`color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is `Qt::GlobalColor`, or it can be any QColor object.
+#### Gradient
+`gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient
 ### QPen
 Used to draw the edges of geometric figures, composed of parameters such as color, width, line style. QPen contains different properties such as brush, width, style, capStyle and joinStyle.
 #### Brush
