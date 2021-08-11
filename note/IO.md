@@ -34,7 +34,7 @@ QTextStream output(&fileWrite);
 ```
 Using the `<<` operator to write the text to the file
 ### QDataStream
-
+For pure binary data, you can use `QDataStream` to assist in processing. It can directly process C++ basic data types, as well as many Qt data types, such as QByteArray, QString, and QMap. And you can use the `<<` or `>>` operator to output or write the data.
 ### filePath
 Get the path of existed file by storing it as a QString data. And ones can then operate I/O of such file
 ```cpp
