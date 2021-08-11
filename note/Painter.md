@@ -13,6 +13,7 @@ The members of the QPainter class: `QBrush`, `QPen`, `QFont`, `QImage`, `QPictur
 QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.
 #### Style
 `style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushStyle.png)
 #### Color
 `color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is `Qt::GlobalColor`, or it can be any QColor object.
 #### Gradient
