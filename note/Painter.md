@@ -4,4 +4,8 @@ The Paint System of Qt is consist of `QPainter, QPaintEngine and QPaintDevice`. 
 ```cpp
 QPainter painter(qPaintDevice);
 ```
-`qPaintDevice` is indicated to the subclass of QPaintDevice (like : QWidget, QImage, QPicture and QPrinter) . And if it's graphic components, the `paintEvent()` of the QWidget is usually redefined. When the Paint Device needs to be repainted, such as when the component appear, overwritten and reappear. You could use `repaint()` or `update()` function to trigger the `paintEvent()` to handle that event.
+`qPaintDevice` is indicated to the subclass of QPaintDevice (like : QWidget, QImage, QPicture and QPrinter) . And if it's graphic components, the `paintEvent()` of the QWidget is usually redefined. When the Paint Device needs to be repainted, such as when the component appear, overwritten and reappear. You could use `repaint()` or `update()` function to trigger the `paintEvent()` to handle that event.<br>
+<br>
+The members of the QPainter class: `QPen`, `QBrush`, `QFont`, `QImage` , `QPicture`, `QPixmap` and `QBitmap`.
+### QPen
+Used to draw the edges of geometric figures, composed of parameters such as color, width, line style.
