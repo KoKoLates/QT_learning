@@ -63,9 +63,22 @@ Open the image by using the paintEvent.
 ```cpp
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Image(*.png *.jpg)"));
 sourceImage.load(filePath); // load in the image that filePath directed
-image = sourceImage.copy().scaled(this->width(),this->height(),Qt::KeepAspectRatio); // copy the sourceImage and resize to image
+image = sourceImage.copy().scaled(this->width(), this->height(), Qt::KeepAspectRatio); // copy the sourceImage and resize to image
 sourceImage = image;
-update(); // 
+update(); // trigger the paintEvent function
+```
+`paintEvent()` with double-buffers that could be use in geograhic shapes painting
+```cpp
+void PaintWidget::paintEvent(QPaintEvent *){
+    QPainter painter(this);
+    if(scribbling == true ) painter.drawImage(0,0,tempImage); //scribbling(bool) indicate that drawing or not(mouse left button is clicked or not)
+    else painter.drawImage(0,0,image);
+}
+```
+Save the image to the indicated filePath that selected with the `QFileDialog`
+```cpp
+QString filePath = QFileDialog::getSaveFileName(this,tr("SaveImage"),"",tr("Image(*.png *.jpg)"));
+image.save(filePath);
 ```
 ## .CSV file
 A Common-Separated values(CSV) file is a delimited text file that use a comma to separate values.Each line of the file is a data record.Each record consists of one or more fields, separated by commas.
