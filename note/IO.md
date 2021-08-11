@@ -11,7 +11,7 @@ Get the path of existed file by storing it as a QString data. And ones can then 
 ```cpp
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenText"),"",tr("Text(*.txt *.csv)"));
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Image(*.png *.jpg *.jepg)"));
-QString filePath = "Path"; // directlt indicate the file path
+QString filePath = "Path"; // directly indicate the file path
 ```
 ## Text file
 ### File Read
@@ -69,10 +69,10 @@ if(fileRead.open(QIODevice::ReadOnly)){
     while(!input.atEnd()){
         lines.push_back(fileRead.readLine());
     }
-    for(int j=0;j<lines.size();j++){
+    for(int j=0; j<lines.size(); j++){
         QString line = lines.at(j);
         QStringList split = line.split(",");
-        for(int col=0;col<split.size();col++){
+        for(int col=0; col<split.size(); col++){
             ui->textBrowser->append(split.at(col));
         }
     }
@@ -84,9 +84,9 @@ Using QStringList as the UserInput
 ```cpp
 QFile fileWrite(filePath);
 QStringList lines;
-lines<<"string1, "<<"string2,";  // each string has to end at commas(,)
+lines<<"string1, "<<"string2,";  // each string has to end at commas
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
-    for(int i=0;i<lines.size();i++){
+    for(int i=0; i<lines.size(); i++){
         fileWrite.write(lines[i].toStdString().c_str());
     }
     fileWrite.close();
@@ -94,10 +94,10 @@ if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
  ``` 
  Using QString as the UserInput
  ```cpp
+//using commas to separate in the string
  QFile fileWrite(filePath);
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
     fileWrite,write(QString);
 FileWrite.close();
 }
-//using commas(,) to separate in the string
 ```
