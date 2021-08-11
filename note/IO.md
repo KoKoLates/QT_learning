@@ -71,7 +71,8 @@ update(); // trigger the paintEvent function
 ```cpp
 void PaintWidget::paintEvent(QPaintEvent *){
     QPainter painter(this);
-    if(scribbling == true ) painter.drawImage(0,0,tempImage); //scribbling(bool) indicate that drawing or not(mouse left button is clicked or not)
+    //scribbling(bool) indicate that drawing or not(mouse left button is clicked or not)
+    if(scribbling == true ) painter.drawImage(0,0,tempImage); 
     else painter.drawImage(0,0,image);
 }
 ```
