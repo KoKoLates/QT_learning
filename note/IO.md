@@ -11,7 +11,7 @@
 ## QFile
 `QIODevice` is the basic class about I/O in Qt, and the subclass about file I/O is `QFile`. You can use `exists()` to test whether the file exists, `size()` to get the size of the file, using `remove()` to remove the file, `open()` to open the file, `readLine()` to read the file, and `flush()` function to confirm  that all the data are exported, use `close()` to close the file. If QFile leaves the calling range, QFile will also automatically close the file.<br>
 ### Member type document
-QIODevice :: OpenMode [QIODevice Class](https://doc.qt.io/qt-5/qiodevice.html#QIODevice)
+`QIODevice::OpenMode` [QIODevice Class](https://doc.qt.io/qt-5/qiodevice.html#QIODevice)
 ```cpp
 QIODevice::ReadOnly // open for reading
 QIODevice::WriteOnly // open for writing, this mode implies Truncate unless combined with Append
@@ -21,9 +21,7 @@ QIODevice::Text //When reading, the end-of-line terminators are translated to '\
                 //When writing, the end-of-line terminators are translated to the local encoding,
 ```
 QFile provides a lower-level interface, usually with `QTextStream` or `QDataStream`, which is more convenient to use. The former is suitable for reading plain text data, and the latter is for accessing binary data.
-
-
-## QTextStream
+### QTextStream
 For reading the text data, you can use `QTextStream` as a convenient operation interface. It is suitable for subclass of QIODevice, QByteArray, QString.And you can use the `<< `and `>>` operators to read and write the text data. QTextStream is only for Decoration of QIODevice, QByteArray, QString (It's such a Decorator)
 ```cpp
 QTextStream input(&fileRead);
@@ -35,9 +33,9 @@ QTextStream output(&fileWrite);
   output<<UserInput<<Qt::endl;
 ```
 Using the `<<` operator to write the text to the file
+### QDataStream
 
-
-## filePath
+### filePath
 Get the path of existed file by storing it as a QString data. And ones can then operate I/O of such file
 ```cpp
 QString filePath = QFileDialog::getOpenFileName(this,tr("OpenText"),"",tr("Text(*.txt *.csv)"));
