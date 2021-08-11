@@ -20,3 +20,7 @@ QMouseEvent, mousePressEvent, mouseMoveEvent, mouseReleaseEvent
 Simple drawing board with QEvent, QImage, QPoint and QPainter
 ##### Painter 01
 ##### painter 02
+Switch the pen to Line, Triangle, Rectangle, Ellipse, Circle function by using the double buffers without Eraser. While using double, the Eraser function will not be able to operate.It has to manipulate like the pen tool.
+
+## project6
+Simple painter that contain Pen, Line, Triangle, Rectangle, Ellipse and Eraser function. And using the `QFileDialog` and `QColorDialog` to possess the file open and save fuction, and the bulld-in color selector to chahge the color of the pen. Besides, using the basic QSS technique to advance the UI widget.
