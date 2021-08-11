@@ -58,6 +58,15 @@ QIODevice::Text //When reading, the end-of-line terminators are translated to '\
 QPixmap icon("imagePath");
 ui->label->setPixmap(icon.scaled(ui->label->width(),ui->label->height(),Qt::KeepAspectRatio));
 ```
+### Open and Save the image
+Open the image by using the paintEvent.
+```cpp
+QString filePath = QFileDialog::getOpenFileName(this,tr("OpenImage"),"",tr("Image(*.png *.jpg)"));
+sourceImage.load(filePath); // load in the image that filePath directed
+image = sourceImage.copy().scaled(this->width(),this->height(),Qt::KeepAspectRatio); // copy the sourceImage and resize to image
+sourceImage = image;
+update(); // 
+```
 ## .CSV file
 A Common-Separated values(CSV) file is a delimited text file that use a comma to separate values.Each line of the file is a data record.Each record consists of one or more fields, separated by commas.
 ### File Read
