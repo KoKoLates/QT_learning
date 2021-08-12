@@ -63,7 +63,7 @@ painter.setPen(Qt::NoPen);
 painter.setBrush(QBrush brush(conicalGradient));
 painter.drawEllipse(QPoint(0, 0), R, R);
 ```
-Then that could create a color wheel, without edge lines. From the code above, we could find that the first and second parameters is the postition of the center point, so that could be replace by `QPoint`, and the third parameter is initial angle of Cartesian Coordination. Besides, `QPainter::translate(x, y)` function means to set the origin of the coordinate system to the point (x, y). In the above code, the posrition (100,100) is set to be the origin of the coordinate.
+Then that could create a color wheel, without edge lines. From the code above, we could find that the first and second parameters of `QConicalGradient` is the postition of the center point, so that could be replace by `QPoint`, and the third parameter is initial angle of Cartesian Coordination. Besides, `QPainter::translate(x, y)` function means to set the origin of the coordinate system to the point (x, y). In the above code, the position (100,100) is set to be the origin of the coordinate.
 ##### QRadialGradient
 
 ### QPen
