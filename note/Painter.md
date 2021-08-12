@@ -17,12 +17,31 @@ QBrush defines the filling mode of QPainter, which has some properties such as s
 #### Color
 `color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is [`Qt::GlobalColor`](https://doc.qt.io/qt-5/qt.html#GlobalColor-enum), or it can be any QColor object.
 ```cpp
+#include <QColorDialog>
 QColor color = QColorDialog::getColor(Qt::black,this,tr("Color Selector"),QColorDialog::ShowAlphaChannel);
 // Set the deflaut color to the black
 ```
 Ones could use the Qt standard dialog box to get select the color and stores it in the QColor object.
 #### Gradient
-`gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient.
+`gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient. Gradient colors need to be specified using two attributes: stop-point and color. 
+```cpp
+void QGradient::setColorAt( qreal postion, const QColor &color)
+```
+You can use the `QGradient::setColorAt()` function to set a single stop-point and color. The stop-point is represented by a value between 0 and 1, and 0 means Start-point, 1 means End-point. And ones could also indicate the color in the assigned position.
+```cpp
+QPainter painter(this);
+QLinearGradient linearGradient(0, 0, 100, 100); // gradient from (0,0) to (100,100)
+linearGradient.setColorAt(0, Qt::white);
+linearGradient.setColorAt(0.5, Qt::green);
+linearGradient.setColorAt(0, Qt::black);
+painter.setBrush(QBrush(linearGradient));
+painter.drawRect(10, 10, 50, 50); //draw a reactangle from (10,10) to (50,50) with linearGradient
+```
+Then could create a rectangle from (10,10) to (50,50) that with linearGradient with white color in start-point, green in mid-point and black in the end. From the code above, we could know that the four parameter of the `QLinearGradient` is the 2D position of start point and end point. Ones could rewrite the code like :
+```cpp
+QLinearGradient linearGradient(QPoint(0,0), QPoint(100,100));
+// or using QPointF to store the coordinate postion in float data and display the gradient more accurately
+```
 ### QPen
 Used to draw the edges of geometric figures, composed of parameters such as color, width, line style. QPen contains different properties such as brush, width, style, capStyle and joinStyle.
 #### Brush
