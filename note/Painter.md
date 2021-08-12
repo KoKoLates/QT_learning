@@ -85,7 +85,14 @@ QRadialGradient(qreal cx, qreal cy, qreal centerRadius, qreal fx, qreal fy, qrea
 Note that `QGradient::Spread` only has an effect on linear gradients and radial gradients, because these two types of gradients have boundaries, while the conical gradients have a gradient range of 0 to 360 degrees, so there is no gradient boundary.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushGradient.png)
 #### Texture
-`QBrush.setTexture(QPixmap pixmap);` set the brush style be the QPixmap, and in this condition, the brush only has single color. Without giving the `Qt::TexturePattern` as you calling `setTexture`, QBrush will spontaneously use the `style()` to be the `Qt::TexturePattern`. Besides, `QBrush.setTextureImage(QImage image);` could also set the brush be a image.
+```cpp
+QBrush.setTexture(QPixmap pixmap);
+``` 
+Set the brush style be the QPixmap, and in this condition, the brush only has single color. Without giving the `Qt::TexturePattern` as you calling `setTexture`, QBrush will spontaneously use the `style()` to be the `Qt::TexturePattern`.
+```cpp
+QBrush.setTextureImage(QImage image);
+``` 
+Could also set the brush be a image.
 
 
 ### QPen
