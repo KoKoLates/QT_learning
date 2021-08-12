@@ -43,6 +43,26 @@ Then could create a rectangle from (10,10) to (50,50) that with linearGradient t
 QLinearGradient linearGradient(QPoint(0,0), QPoint(100,100));
 // or using QPointF to store the coordinate postion in float data and display the gradient more accurately
 ```
+##### QConicalGradient
+```cpp
+QPainter painter(this);
+const int R = 100; // declare the radius of the circle
+QConicalGradient conicalGradient(0, 0, 0);
+conicalGradient.setColorAt(0, Qt::red);
+conicalGradient.setColorAt(60/360, Qt::yellow);
+conicalGradient.setColorAt(120/360, Qt::green);
+conicalGradient.setColorAt(180/360, Qt::cyan);
+conicalGradient.setColorAt(240/360, Qt::blue);
+conicalGradient.setColorAt(300/360, Qt::magenta);
+conicalGradient.setColorAt(1, Qt::red);
+
+painter.translate(R, R);
+painter.setPen(Qt::NoPen);
+painter.setBrush(QBrush brush(conicalGradient));
+painter.drawEllipse(QPoint(0, 0), R, R);
+```
+Then that could create a color wheel, without edge lines. From the code above, we could find that the first and second parameters is the postition of the center point, so that could be replace by `QPoint`, and the third parameter is initial angle of Cartesian Coordination. Besides, `QPainter::translate(x, y)` function means to set the origin of the coordinate system to the point (x, y). In the above code, the posrition (100,100) is set to be the origin of the coordinate.
+##### QRadialGradient
 
 ### QPen
 Used to draw the edges of geometric figures, composed of parameters such as color, width, line style. QPen contains different properties such as brush, width, style, capStyle and joinStyle.
