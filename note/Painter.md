@@ -13,10 +13,78 @@ The members of the QPainter class: `QBrush`, `QPen`, `QFont`, `QImage`, `QPictur
 QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.
 #### Style
 `style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushStyle.png)
 #### Color
-`color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is `Qt::GlobalColor`, or it can be any QColor object.
+`color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is [`Qt::GlobalColor`](https://doc.qt.io/qt-5/qt.html#GlobalColor-enum), or it can be any QColor object.
+```cpp
+#include <QColorDialog>
+QColor color = QColorDialog::getColor(Qt::black,this,tr("Color Selector"),QColorDialog::ShowAlphaChannel);
+// Set the deflaut color to the black
+// QColorDialog::ShowAlphaChannel allow the user to select the alpha component of a color.
+```
+Ones could use the Qt standard dialog box to get select the color and stores it in the QColor object.<br>
+[`QColorDialog::ColorDialogOption`](https://doc.qt.io/qt-5/qcolordialog.html#ColorDialogOption-enum)
 #### Gradient
-`gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient
+`gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient. Gradient colors need to be specified using two attributes: stop-point and color. 
+```cpp
+void QGradient::setColorAt( qreal postion, const QColor &color)
+```
+You can use the `QGradient::setColorAt()` function to set a single stop-point and color. The stop-point is represented by a value between 0 and 1, and 0 means Start-point, 1 means End-point. And ones could also indicate the color in the assigned position.<br>
+##### QLinearGradient 
+```cpp
+QPainter painter(this);
+QLinearGradient linearGradient(0, 0, 100, 100); // gradient from (0,0) to (100,100)
+linearGradient.setColorAt(0, Qt::white);
+linearGradient.setColorAt(0.5, Qt::green);
+linearGradient.setColorAt(0, Qt::black);
+painter.setBrush(QBrush(linearGradient));
+painter.drawRect(10, 10, 50, 50); //draw a rectangle from (10,10) to (50,50) with linearGradient
+```
+Then could create a rectangle from (10,10) to (50,50) that with linearGradient that white color in start-point, green in mid-point and black in the end. From the code above, we could know that the four parameter of the `QLinearGradient` is the 2D position of start point and end point. Ones could rewrite the code like :
+```cpp
+QLinearGradient linearGradient(QPoint(0,0), QPoint(100,100));
+// or using QPointF to store the coordinate postion in float data and display the gradient more accurately
+```
+##### QConicalGradient
+```cpp
+QPainter painter(this);
+const int R = 100; // declare the radius of the circle
+QConicalGradient conicalGradient(0, 0, 0);
+conicalGradient.setColorAt(0, Qt::red);
+conicalGradient.setColorAt(60/360, Qt::yellow);
+conicalGradient.setColorAt(120/360, Qt::green);
+conicalGradient.setColorAt(180/360, Qt::cyan);
+conicalGradient.setColorAt(240/360, Qt::blue);
+conicalGradient.setColorAt(300/360, Qt::magenta);
+conicalGradient.setColorAt(1, Qt::red);
+
+painter.translate(R, R);
+painter.setPen(Qt::NoPen);
+painter.setBrush(QBrush brush(conicalGradient));
+painter.drawEllipse(QPoint(0, 0), R, R);
+```
+Then that could create a color wheel, without edge lines. From the code above, we could find that the first and second parameters of `QConicalGradient` is the postition of the center point, so that could be replace by `QPoint`, and the third parameter is initial angle of Cartesian Coordination. Besides, `QPainter::translate(x, y)` function means to set the origin of the coordinate system to the point (x, y). In the above code, the position (100,100) is set to be the origin of the coordinate.
+##### QRadialGradient
+```cpp
+QPainter painter(this);
+QRadialGradient radialGradient(QPoint(200,200),200,QPoint(250,250),50);
+radialGradient.setColorAt(0, Qt::white);
+radialGradient.setColorAt(0.5,Qt::red);
+radialGradient.setColorAt(1,Qt::yellow);
+radialGradient.setSpread(QGradient::RepeatSpread); //spread the gradient in repeat mode
+painter.setBrush(QBrush(radialGradient));
+painter.drawRect(0, 0, 400, 400);
+```
+To realize the parameter of the QRadialGradient function, we could observe the constructor of it :
+```cpp
+QRadialGradient(const QPoint &centerPoint, qreal centerRadius, const QPoint &focalPoint, qreal focalRadius);
+QRadialGradient(qreal cx, qreal cy, qreal centerRadius, qreal fx, qreal fy, qreal focalRadius);
+```
+( _cx_ , _cy_ ) is the position of the center, and ( _fx_ , _fy_ ) is the position of the focal point. Besides, using `QGradient::setSpread()` function could set the ways how does the gradient color spread in the area outside the gradient area. `QGradient::PadSpread` is the default and the color outside the gradient area is the color of end point; `QGradient::RepeatSpread` will repeat the gradient outside the area and `QGradient::ReflectSpread` will reflect, in opposite way of, the gradient outside the area.<br>
+<br>
+Note that `QGradient::Spread` only has an effect on linear gradients and radial gradients, because these two types of gradients have boundaries, while the conical gradients have a gradient range of 0 to 360 degrees, so there is no gradient boundary.
+
+
 ### QPen
 Used to draw the edges of geometric figures, composed of parameters such as color, width, line style. QPen contains different properties such as brush, width, style, capStyle and joinStyle.
 #### Brush
