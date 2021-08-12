@@ -15,7 +15,12 @@ QBrush defines the filling mode of QPainter, which has some properties such as s
 `style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushStyle.png)
 #### Color
-`color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is [`Qt::GlobalColor`](https://doc.qt.io/qt-5/qt.html#GlobalColor-enum), or it can be any QColor object. 
+`color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is [`Qt::GlobalColor`](https://doc.qt.io/qt-5/qt.html#GlobalColor-enum), or it can be any QColor object.
+```cpp
+QColor color = QColorDialog::getColor(Qt::black,this,tr("Color Selector"),QColorDialog::ShowAlphaChannel);
+// Set the deflaut color to the black
+```
+Ones could use the Qt standard dialog box to get select the color and stores it in the QColor object.
 #### Gradient
 `gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient.
 ### QPen
