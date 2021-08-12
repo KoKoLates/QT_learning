@@ -82,7 +82,7 @@ QRadialGradient(qreal cx, qreal cy, qreal centerRadius, qreal fx, qreal fy, qrea
 ```
 ( _cx_ , _cy_ ) is the position of the center, and ( _fx_ , _fy_ ) is the position of the focal point. Besides, using `QGradient::setSpread()` function could set the ways how does the gradient color spread in the area outside the gradient area. `QGradient::PadSpread` is the default and the color outside the gradient area is the color of end point; `QGradient::RepeatSpread` will repeat the gradient outside the area and `QGradient::ReflectSpread` will reflect, in opposite way of, the gradient outside the area.<br>
 <br>
-Note that `QGradient::Spread` only has an effect on linear gradients and radial gradients, because these two types of gradients have boundaries, while the conical gradients have a gradient range of 0 to 360 degrees, so there is no gradient boundary.
+Note that `QGradient::Spread` only has an effect on linear gradients and radial gradients, because these two types of gradients have boundaries, while the conical gradients have a gradient range of 0 to 360 degrees, so there is no gradient boundary.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushGradient.png)
 
 ### QPen
