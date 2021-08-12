@@ -38,7 +38,7 @@ linearGradient.setColorAt(0, Qt::white);
 linearGradient.setColorAt(0.5, Qt::green);
 linearGradient.setColorAt(0, Qt::black);
 painter.setBrush(QBrush(linearGradient));
-painter.drawRect(10, 10, 50, 50); //draw a reactangle from (10,10) to (50,50) with linearGradient
+painter.drawRect(10, 10, 50, 50); //draw a rectangle from (10,10) to (50,50) with linearGradient
 ```
 Then could create a rectangle from (10,10) to (50,50) that with linearGradient that white color in start-point, green in mid-point and black in the end. From the code above, we could know that the four parameter of the `QLinearGradient` is the 2D position of start point and end point. Ones could rewrite the code like :
 ```cpp
