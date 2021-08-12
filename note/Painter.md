@@ -23,7 +23,7 @@ QColor color = QColorDialog::getColor(Qt::black,this,tr("Color Selector"),QColor
 // QColorDialog::ShowAlphaChannel allow the user to select the alpha component of a color.
 ```
 Ones could use the Qt standard dialog box to get select the color and stores it in the QColor object.<br>
-[QColorDialog::ColorDialogOption](https://doc.qt.io/qt-5/qcolordialog.html#ColorDialogOption-enum)
+[`QColorDialog::ColorDialogOption`](https://doc.qt.io/qt-5/qcolordialog.html#ColorDialogOption-enum)
 #### Gradient
 `gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient. Gradient colors need to be specified using two attributes: stop-point and color. 
 ```cpp
