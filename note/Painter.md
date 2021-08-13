@@ -103,7 +103,7 @@ Used to draw the edges of geometric figures, composed of parameters such as colo
 The width of the pen `width()` or `widthF()` (float data) defines the width of the pen. Note that there is no line with a width of 0. Suppose you set the width to 0, QPainter will still draw a line, and the width of this line is 1 pixel. In other words, the brush width is usually at least 1 pixel.
 #### Style
 `style()` defines the style of the line. <br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenStyle.png)
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenStyle.png) <br>
 Ones can use `setDashPattern()` function to define the style of the pen :
 ```cpp
 QPen pen;
@@ -115,7 +115,7 @@ pen.setDashPattern(dashes);
 ```
 #### CapStyle
 `capStyle()` defines the end of the line drawn using QPainter. <br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle01.png)
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle01.png) <br>
 The difference between them is that `Qt::SquareCap` is a square cap that contains the last point and is covered by half the line width; `Qt::FlatCap` does not contain the last point; `Qt::RoundCap` contains the last point Round end : <br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle02.png)
 #### JoinStyle
