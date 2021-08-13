@@ -142,4 +142,16 @@ pen.setJoinStyle(Qt::RoundJoin);
 
 painter.setPen(pen);
 ```
-The advantage of using the constructor is that the code is shorter, but the meaning of the parameters is not clear; using the set function is just the opposite. Besides, the default of QPen is `Qt::black`, 0 pixel, `Qt::squareCap` and `Qt::BevelJoin.
+The advantage of using the constructor is that the code is shorter, but the meaning of the parameters is not clear; using the set function is just the opposite. Besides, the default of QPen is `Qt::black`, 0 pixel, `Qt::squareCap` and `Qt::BevelJoin`.
+
+
+### QFont
+
+### QImage
+
+### QPicture
+
+### QPixmap
+
+### QBitmap
+
