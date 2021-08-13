@@ -146,6 +146,24 @@ The advantage of using the constructor is that the code is shorter, but the mean
 
 
 ### QFont
+The `drawText()` function in the QPainter class can draw text on the drawing device, and also could use `setFont()` function to set the font for drawing.
+```cpp
+QPainter painter(this);
+painter.drawText(100,100,"texts"); //draw a string "texts" in the position (100,100)
+```
+In the another constructor of the `drawText()` function, we could control the position of the text in a rectangle.
+```cpp
+void QPainter::drawText(const QRect &rectangle, int flags, const QString &text);
+```
+Its first parameter specifies the rectangle where the text is drawn; the second parameter specifies the alignment of the text in the rectangle, which is defined by the [`Qt::AlignmentFlag`](https://doc.qt.io/qt-5/qt.html#AlignmentFlag-enum) enumeration variable. Different alignments can also use the `|` operator at the same time, here you can also use some other flags defined by `Qt::TextFlag`, such as automatic line wrapping. The third parameter is the text to be drawn.
+```cpp
+QPainter painter(this);
+QRect rect(10,10,100,100); // define a rectangle between (10,10) and (100,100)
+
+painter.drawRect(rect)
+painter.setPen(QColor(Qt::black));
+painter.drawText(rect, Qt::AlignHCenter, "texts");
+```
 
 ### QImage
 
