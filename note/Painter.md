@@ -98,11 +98,11 @@ Could also set the brush be a image.
 ### QPen
 Used to draw the edges of geometric figures, composed of parameters such as color, width, line style. QPen contains different properties such as brush, width, style, capStyle and joinStyle.
 #### Brush
-`brush()` 
+`brush()` is used to fill the lines drawn by the brush, it decides the color or image of the pen. The detailed introductions could see the color of QBrush.
 #### Width
-
+The width of the pen `width()` or `widthF()` (float data) defines the width of the pen. Note that there is no line with a width of 0. Suppose you set the width to 0, QPainter will still draw a line, and the width of this line is 1 pixel. In other words, the brush width is usually at least 1 pixel.
 #### Style
-
+`style()` defines the style of the line.
 #### CapStyle
 
 #### JoinStyle
