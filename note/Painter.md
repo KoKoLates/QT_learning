@@ -102,7 +102,44 @@ Used to draw the edges of geometric figures, composed of parameters such as colo
 #### Width
 The width of the pen `width()` or `widthF()` (float data) defines the width of the pen. Note that there is no line with a width of 0. Suppose you set the width to 0, QPainter will still draw a line, and the width of this line is 1 pixel. In other words, the brush width is usually at least 1 pixel.
 #### Style
-`style()` defines the style of the line.
-#### CapStyle
+`style()` defines the style of the line. <br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenStyle.png)
+Ones can use `setDashPattern()` function to define the style of the pen :
+```cpp
+QPen pen;
+QVector<qreal> dashes;
+qreal space = 4;
 
+dashes << 1 << space << 3 << space << 9 << space << 27 << space << 9 << space;
+pen.setDashPattern(dashes);
+```
+#### CapStyle
+`capStyle()` defines the end of the line drawn using QPainter. <br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle01.png)
+The difference between them is that `Qt::SquareCap` is a square cap that contains the last point and is covered by half the line width; `Qt::FlatCap` does not contain the last point; `Qt::RoundCap` contains the last point Round end : <br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle02.png)
 #### JoinStyle
+`joinStyle()` defines how the two lines are connected.<br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenJoinStyle02.png)<br><br>
+
+#### Construct
+Using the constructor to reset the style of the pen.
+```cpp
+QPainter painter(this);
+QPen pen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
+painter.setPen(pen);
+```
+Or using set function to indicate the style respectively :
+```cpp
+QPainter painter(this);
+Qpen pen; //create a default pen
+
+pen.setBrush(Qt::black);
+pen.setWidth(5);
+pen.setStyle(Qt::SolidLine);
+pen.setCapStyle(Qt::RoundCap);
+pen.setJoinStyle(Qt::RoundJoin);
+
+painter.setPen(pen);
+```
+The advantage of using the constructor is that the code is shorter, but the meaning of the parameters is not clear; using the set function is just the opposite. Besides, the default of QPen is `Qt::black`, 0 pixel, `Qt::squareCap` and `Qt::BevelJoin.
