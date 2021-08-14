@@ -164,6 +164,26 @@ painter.drawRect(rect)
 painter.setPen(QColor(Qt::black));
 painter.drawText(rect, Qt::AlignHCenter, "texts");
 ```
+#### QFont
+In order to draw beautiful text, you can use the `QFont` class to set the text font.
+```cpp
+QFont font("Microsoft YaHei UI", 15, QFont::Bold, true);
+font.setOverline(true);
+font.setUnderline(true); // set the top and buttom line for the texts
+font.setCapitalization(Qt::smallCaps);
+font.setLetterSpacing(Qt::AbsoluteSpacing,10);
+
+painter.setFont(font);
+painter.setPen(Qt::black);
+painter.drawText(150,100,"texts");
+```
+The QFont font object is created here, and the constructor used is :
+```cpp
+QFont::Qfont(const QString &family, int pointSize = -1, int weight = -1, bool italic = false)
+```
+The first parameter sets the family attribute of the font. The font family used here is "Microsoft YaHei UI". You can use the QFontDatabase class to get all the supported fonts; the second parameter is the point size, the default size is 15; the third parameter is the weight attribute, Bold is used here; whether to use italics for the last property setting.<br>
+<br>
+Besides, several other functions are used to format the font. 
 
 ### QImage
 
