@@ -183,7 +183,14 @@ QFont::Qfont(const QString &family, int pointSize = -1, int weight = -1, bool it
 ```
 The first parameter sets the family attribute of the font. The font family used here is "Microsoft YaHei UI". You can use the QFontDatabase class to get all the supported fonts; the second parameter is the point size, the default size is 15; the third parameter is the weight attribute, Bold is used here; whether to use italics for the last property setting.<br>
 <br>
-Besides, several other functions are used to format the font. 
+Besides, several other functions are used to format the font. `setCapitalization()` set the space between characters according to the enum of [`QFont::Capitalization`](https://doc.qt.io/qt-5/qfont.html#Capitalization-enum).
+```cpp
+void QFont::setLetterSpacing(QFont::SpacingType type, qreal spacing)
+```
+Sets the letter spacing for the font to spacing and the type of spacing to type.Letter spacing changes the default spacing between individual letters in the font. The spacing between the letters can be made smaller as well as larger either in percentage of the character width or in pixels, depending on the selected spacing type. Finally, call the `setFont()` function to use the font, and use another overloaded form of the `drawText()` function to draw the text at the point (150,100).
+#### QFontMetrics
+After setting the font, you can use the `fontMetrics()` method to obtain the geometric information of the font, such as _ascent_ (the distance from the highest point of the character to the baseline of the character), _descent_ (the distance from the lowest point of the character to the bottom of the character), _leading_ ( The space value between two lines) _height_ (the height of the font when printing, equivalent to _ascent_ + _descent_ + 1, 1 pixel is the height of the bottom line of the character) and _linespacing_ (_height_ + _leading_).
+
 
 ### QImage
 
