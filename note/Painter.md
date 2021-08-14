@@ -205,11 +205,10 @@ Different types of drawing functions, see [`QPainter::members`](https://doc.qt.i
 
 ## QPaintDevice 
 
-### QImage
-
-### QPicture
-
 ### QPixmap
 
-### QBitmap
+#### QBitmap
 
+### QImage
+
+### QPicture 
