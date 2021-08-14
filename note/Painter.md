@@ -102,7 +102,101 @@ Used to draw the edges of geometric figures, composed of parameters such as colo
 #### Width
 The width of the pen `width()` or `widthF()` (float data) defines the width of the pen. Note that there is no line with a width of 0. Suppose you set the width to 0, QPainter will still draw a line, and the width of this line is 1 pixel. In other words, the brush width is usually at least 1 pixel.
 #### Style
-`style()` defines the style of the line.
-#### CapStyle
+`style()` defines the style of the line. <br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenStyle.png) <br>
+Ones can use `setDashPattern()` function to define the style of the pen :
+```cpp
+QPen pen;
+QVector<qreal> dashes;
+qreal space = 4;
 
+dashes << 1 << space << 3 << space << 9 << space << 27 << space << 9 << space;
+pen.setDashPattern(dashes);
+```
+#### CapStyle
+`capStyle()` defines the end of the line drawn using QPainter. <br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle01.png) <br>
+The difference between them is that `Qt::SquareCap` is a square cap that contains the last point and is covered by half the line width; `Qt::FlatCap` does not contain the last point; `Qt::RoundCap` contains the last point Round end : <br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle02.png)
 #### JoinStyle
+`joinStyle()` defines how the two lines are connected.<br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenJoinStyle02.png)<br><br>
+
+#### Construct
+Using the constructor to reset the style of the pen.
+```cpp
+QPainter painter(this);
+QPen pen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
+painter.setPen(pen);
+```
+Or using set function to indicate the style respectively :
+```cpp
+QPainter painter(this);
+Qpen pen; //create a default pen
+
+pen.setBrush(Qt::black);
+pen.setWidth(5);
+pen.setStyle(Qt::SolidLine);
+pen.setCapStyle(Qt::RoundCap);
+pen.setJoinStyle(Qt::RoundJoin);
+
+painter.setPen(pen);
+```
+The advantage of using the constructor is that the code is shorter, but the meaning of the parameters is not clear; using the set function is just the opposite. Besides, the default of QPen is `Qt::black`, 0 pixel, `Qt::squareCap` and `Qt::BevelJoin`.
+
+
+### QFont
+The `drawText()` function in the QPainter class can draw text on the drawing device, and also could use `setFont()` function to set the font for drawing.
+```cpp
+QPainter painter(this);
+painter.drawText(100,100,"texts"); //draw a string "texts" in the position (100,100)
+```
+In the another constructor of the `drawText()` function, we could control the position of the text in a rectangle.
+```cpp
+void QPainter::drawText(const QRect &rectangle, int flags, const QString &text);
+```
+Its first parameter specifies the rectangle where the text is drawn; the second parameter specifies the alignment of the text in the rectangle, which is defined by the [`Qt::AlignmentFlag`](https://doc.qt.io/qt-5/qt.html#AlignmentFlag-enum) enumeration variable. Different alignments can also use the `|` operator at the same time, here you can also use some other flags defined by `Qt::TextFlag`, such as automatic line wrapping. The third parameter is the text to be drawn.
+```cpp
+QPainter painter(this);
+QRect rect(10,10,100,100); // define a rectangle between (10,10) and (100,100)
+
+painter.drawRect(rect)
+painter.setPen(QColor(Qt::black));
+painter.drawText(rect, Qt::AlignHCenter, "texts");
+```
+#### QFont
+In order to draw beautiful text, you can use the `QFont` class to set the text font.
+```cpp
+QFont font("Microsoft YaHei UI", 15, QFont::Bold, true);
+font.setOverline(true);
+font.setUnderline(true); // set the top and buttom line for the texts
+font.setCapitalization(Qt::smallCaps);
+font.setLetterSpacing(Qt::AbsoluteSpacing,10);
+
+painter.setFont(font);
+painter.setPen(Qt::black);
+painter.drawText(150,100,"texts");
+```
+The QFont font object is created here, and the constructor used is :
+```cpp
+QFont::Qfont(const QString &family, int pointSize = -1, int weight = -1, bool italic = false)
+```
+The first parameter sets the family attribute of the font. The font family used here is "Microsoft YaHei UI". You can use the QFontDatabase class to get all the supported fonts; the second parameter is the point size, the default size is 15; the third parameter is the weight attribute, Bold is used here; whether to use italics for the last property setting.<br>
+<br>
+Besides, several other functions are used to format the font. `setCapitalization()` set the space between characters according to the enum of [`QFont::Capitalization`](https://doc.qt.io/qt-5/qfont.html#Capitalization-enum).
+```cpp
+void QFont::setLetterSpacing(QFont::SpacingType type, qreal spacing)
+```
+Sets the letter spacing for the font to spacing and the type of spacing to type.Letter spacing changes the default spacing between individual letters in the font. The spacing between the letters can be made smaller as well as larger either in percentage of the character width or in pixels, depending on the selected spacing type. Finally, call the `setFont()` function to use the font, and use another overloaded form of the `drawText()` function to draw the text at the point (150,100).
+#### QFontMetrics
+After setting the font, you can use the `fontMetrics()` method to obtain the geometric information of the font, such as _ascent_ (the distance from the highest point of the character to the baseline of the character), _descent_ (the distance from the lowest point of the character to the bottom of the character), _leading_ ( The space value between two lines) _height_ (the height of the font when printing, equivalent to _ascent_ + _descent_ + 1, 1 pixel is the height of the bottom line of the character) and _linespacing_ (_height_ + _leading_).
+
+
+### QImage
+
+### QPicture
+
+### QPixmap
+
+### QBitmap
+
