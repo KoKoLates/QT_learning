@@ -8,7 +8,7 @@ QPainter painter(qPaintDevice);
 ```
 `qPaintDevice` is indicated to the subclass of QPaintDevice, such as QWidget, QImage, QPicture and QPrinter. And if it's graphic components, the `paintEvent()` of the QWidget is usually redefined. When the Paint Device needs to be repainted, such as when the component appear, overwritten and reappear. You could use `repaint()` or `update()` function to trigger the `paintEvent()` to handle that event.<br>
 <br>
-The members of the QPainter class: `QBrush`, `QPen`, `QFont`, `QImage`, `QPicture`, `QPixmap` and `QBitmap`.
+The members of the QPainter class: `QBrush`, `QPen` and `QFont`.
 ### QBrush
 QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.
 #### Style
@@ -189,8 +189,21 @@ void QFont::setLetterSpacing(QFont::SpacingType type, qreal spacing)
 ```
 Sets the letter spacing for the font to spacing and the type of spacing to type.Letter spacing changes the default spacing between individual letters in the font. The spacing between the letters can be made smaller as well as larger either in percentage of the character width or in pixels, depending on the selected spacing type. Finally, call the `setFont()` function to use the font, and use another overloaded form of the `drawText()` function to draw the text at the point (150,100).
 #### QFontMetrics
-After setting the font, you can use the `fontMetrics()` method to obtain the geometric information of the font, such as _ascent_ (the distance from the highest point of the character to the baseline of the character), _descent_ (the distance from the lowest point of the character to the bottom of the character), _leading_ ( The space value between two lines) _height_ (the height of the font when printing, equivalent to _ascent_ + _descent_ + 1, 1 pixel is the height of the bottom line of the character) and _linespacing_ (_height_ + _leading_).
+After setting the font, you can use the `fontMetrics()` method to obtain the geometric information of the font, such as _ascent_ (the distance from the highest point of the character to the baseline of the character), _descent_ (the distance from the lowest point of the character to the bottom of the character), _leading_ ( The space value between two lines) _height_ (the height of the font when printing, equivalent to _ascent_ + _descent_ + 1, 1 pixel is the height of the bottom line of the character) and _linespacing_ (_height_ + _leading_).<br><br>
+![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QFontMetrics.PNG)
+### Member Functions
+Can only draw graphics in `QWidget::paintEvent`
+```cpp
+void paintEvent(QPaintEvent *event){
+  QPainter painter(this);
+  painter.drawLine(QPoint(10,10), QPoint(100,100));
+}
+```
+Different types of drawing functions, see [`QPainter::members`](https://doc.qt.io/qt-5/qpainter-members.html) to obtain detailed parameters of each functions.
 
+
+
+## QPaintDevice 
 
 ### QImage
 
