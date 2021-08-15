@@ -204,7 +204,7 @@ Different types of drawing functions, see [`QPainter::members`](https://doc.qt.i
 
 
 ## QPaintDevice 
-
+Qt provides four classes to process image data: `QImage`, `QPixmap`, `QBitmap` and `QPicture`, they are also commonly used drawing devices. Among them, QImage is mainly used for I/O processing. It optimizes I/O processing operations, and can also be used to directly access and manipulate pixels; QPixmap is mainly used to optimized the displayment  images on the screen; QBitmap is a subclass of QPixmap, which is a convenient class used to process images with a color depth of 1, that is, only black and white can be displayed; QPicture is used to record and replay QPainter commands.
 ### QPixmap
 
 #### QBitmap
