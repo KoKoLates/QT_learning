@@ -232,7 +232,7 @@ painter.drawPix(50, 50, pix);
 #### QBitmap
 `QBitmap` is a subclass of `QPixmap`, which provides monochrome images, which can be used to make cursors (QCursor) or brushes (QBrush) objects.
 ### QImage
-`QImage` is mainly designed for image I/O, image access and pixel modification. And `QImage` uses Qt's own drawing engine, which can provide the same image rendering effect on different platforms, and can directly access the specified pixels through methods such as `setPixpel()`, `pixel()`.[Pixel Manipulation](https://doc.qt.io/qt-5/qimage.html#pixel-manipulation)
+`QImage` is mainly designed for image I/O, image access and pixel modification. And `QImage` uses Qt's own drawing engine, which can provide the same image rendering effect on different platforms, and can directly access the specified pixels through methods such as `setPixpel()`, `pixel()`. [Pixel Manipulation](https://doc.qt.io/qt-5/qimage.html#pixel-manipulation)
 ```cpp
 // 32 bit
 QImage = image(3, 3, QImage::Format_RGB32);
@@ -248,4 +248,41 @@ image.setPixel(1, 0, value);
 value = qRgb(237, 187, 51); // 0xffedba31
 image.setPixel(2, 1, value);
 ```
+Interface prototype for drawing `QImage` in QPainter :
+```cpp
+void QPainter::drawImage(int x, int y, const QImage &image, int sx = 0, int sy = 0, int sw = -1, int sh = -1, Qt::ImageConversionFlags flags = Qt::AutoColor )
+```
+Where _x_ and _y_ are the drawing positions, _sx_ and _sy_ are the coordinates of the upper left corner of the image, _sw_ and _sh_ are the size of the specified image, if both are 0 or negative, the entire image is displayed.
+```cpp
+QPainter painter(this);
+QImage image;
+image.load("filePath"); // absolute or relative path
+painter.drawImage(0, 0, image);
+```
+When the picture is large, we can first load the picture through `QImage`, then scale the picture to the required size, and finally convert it to `QPixmap` for display.
+```CPP
+QPainter painter(this);
+QImage image;
+image.load("filaPath");
+QPixmap pix = QPixmap::fromImage(image.scaled(size(), Qt::KeepAspectRatio));
+painter.drawPixmap(0, 0, pix);
+```
 ### QPicture 
+`QPicture` is a drawing device used to record and replay Qpainter's drawing instructions. Use `begin()` function to draw on QPicture, use `end()` to end drawing and use `save()` to save to the file.
+```cpp
+QPainter painter;
+QPicture picture;
+painter.begin(&picture); 
+painter.drawRect(0, 0, 100, 100);
+painter.end();
+picture.save("draw_record.pic");
+```
+If you need to replay the drawing commands, create a new `QPicture` object, use `load()` to reload the saved file, and then draw QPicture on the specified drawing device.
+```cpp
+QPainter painter;
+QPicture picture;
+picture.load("draw_record.pic");  
+painter.begin(this);
+painter.drawPicture(0, 0, picture); 
+painter.end(); 
+```
