@@ -4,7 +4,7 @@ The default coordinate system of QPainter is the coordinate system of the drawin
 x' = m11*x + m21*y + dx
 y' = m22*y + m12*x + dy
 ```
-_dx_ and _dy_ define horizontal and vertical movement, _m11_ and _m22_ define horizontal and vertical scaling , _m12_ and _m21_ define vertical and horizontal distortion (shearing). You can use the `setMatrix()` function of `QMatrix` to set _m11_, _m12_, _m21_, _m22_, _dx_, _dy_, or directly use the `QPainter::scale()` function to scale the coordinate system; use the `QPainter::rotate()` function to rotate the coordinate system clockwise; use the `QPainter::translate()` function to translate the coordinate system; you can also use `QPainter::shear()` to surround the origin To distort the coordinate system.
+_dx_ and _dy_ define horizontal and vertical movement, _m11_ and _m22_ define horizontal and vertical scaling , _m12_ and _m21_ define vertical and horizontal distortion (shearing). You can use the `setMatrix()` function of `QMatrix` to set _m11_, _m12_, _m21_, _m22_, _dx_, _dy_, or directly use the `QPainter::scale()` function to scale the coordinate system; use the `QPainter::rotate()` function to rotate the coordinate system clockwise; use the `QPainter::translate()` function to translate the coordinate system; you can also use `QPainter::shear()` to surround the origin To distort the coordinate system.<br><br>
 ![iamge](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QTrasform.PNG)
 ## Translate
 ```cpp
