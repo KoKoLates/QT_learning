@@ -227,10 +227,25 @@ pix = pix.scaled(width*2, height*2, Qt::KeepAspectRatio);
 // Expand the width and height of the picture twice, and keep the ratio of width to height unchanged within a given rectangle
 painter.drawPix(50, 50, pix);
 ```
-
-![image](https://github.com/KoKoLates/Qt_learning/blob/main/note/images/AspectRatio.PNG)
+![image](https://github.com/KoKoLates/Qt_learning/blob/main/note/images/AspectRatio.PNG)<br>
+`Qt::IgnoreAspectRatio` does not keep the aspect ratio of the picture, `Qt::KeepAspectRatio` keeps the aspect ratio in the given rectangle and `Qt::KeepAspectRatioByExpanding`  also keeps the aspect ratio, but may exceed the given rectangle.
 #### QBitmap
-
+`QBitmap` is a subclass of `QPixmap`, which provides monochrome images, which can be used to make cursors (QCursor) or brushes (QBrush) objects.
 ### QImage
+`QImage` is mainly designed for image I/O, image access and pixel modification. And `QImage` uses Qt's own drawing engine, which can provide the same image rendering effect on different platforms, and can directly access the specified pixels through methods such as `setPixpel()`, `pixel()`.[Pixel Manipulation](https://doc.qt.io/qt-5/qimage.html#pixel-manipulation)
+```cpp
+// 32 bit
+QImage = image(3, 3, QImage::Format_RGB32);
+QRge vales;
 
+value = qRgb(189, 149, 39); // 0xffbd9527
+image.setPixel(1, 1, value);
+
+value = qRgb(122, 163, 39); // 0xff7aa327
+image.setPixel(0, 1, value);
+image.setPixel(1, 0, value);
+
+value = qRgb(237, 187, 51); // 0xffedba31
+image.setPixel(2, 1, value);
+```
 ### QPicture 
