@@ -228,6 +228,7 @@ pix = pix.scaled(width*2, height*2, Qt::KeepAspectRatio);
 painter.drawPix(50, 50, pix);
 ```
 
+![image](https://github.com/KoKoLates/Qt_learning/blob/main/note/images/AspectRatio.PNG)
 #### QBitmap
 
 ### QImage
