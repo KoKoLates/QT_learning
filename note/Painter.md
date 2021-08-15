@@ -206,6 +206,27 @@ Different types of drawing functions, see [`QPainter::members`](https://doc.qt.i
 ## QPaintDevice 
 Qt provides four classes to process image data: `QImage`, `QPixmap`, `QBitmap` and `QPicture`, they are also commonly used drawing devices. Among them, QImage is mainly used for I/O processing. It optimizes I/O processing operations, and can also be used to directly access and manipulate pixels; QPixmap is mainly used to optimized the displayment  images on the screen; QBitmap is a subclass of QPixmap, which is a convenient class used to process images with a color depth of 1, that is, only black and white can be displayed; QPicture is used to record and replay QPainter commands.
 ### QPixmap
+`QPixmap` inherits QPaintDevice. You can create QPainter and draw on it. You can also directly specify the pattern to load the graphics files supported by Qt, such as BMP, GIF, JPG, JPEG, PNG. And use QPainter's `drawPixmap( )` function drawn on other drawing devices. You can set `QPixmap` on QLabel and QPushButton to display images. QPixmap is designed and optimized for the image displayed on the screen. It depends on the native graphics engine of the platform, so the display of some effects (such as anti-aliasing) may have inconsistent results on different platforms.
+```cpp
+QPainter painter(this);
+QPixmap pix;
+pix.load("filePath"); // absolute or relative path
+painter.drawPixmap(0, 0, 100, 80, pix); 
+```
+The `drawPixmap()` function draws a picture in a given rectangle, where the upper left corner of the rectangle is (0, 0) point, width 100, height 80. If this is not the same size as the picture, the picture will be stretched by default.
+#### Size
+We can use the `scaled()` function in the `QPixmap` class to zoom in and out of the picture :
+```cpp
+QPainter painter(this);
+QPixmap pix;
+pix.load("filePath"); // absolute or relative path
+
+qreal width = pix.width();
+qreal height = pix.height();
+pix = pix.scaled(width*2, height*2, Qt::KeepAspectRatio); 
+// Expand the width and height of the picture twice, and keep the ratio of width to height unchanged within a given rectangle
+painter.drawPix(50, 50, pix);
+```
 
 #### QBitmap
 
