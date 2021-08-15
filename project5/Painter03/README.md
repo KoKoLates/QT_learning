@@ -5,7 +5,7 @@ x' = m11*x + m21*y + dx
 y' = m22*y + m12*x + dy
 ```
 _dx_ and _dy_ define horizontal and vertical movement, _m11_ and _m22_ define horizontal and vertical scaling , _m12_ and _m21_ define vertical and horizontal distortion (shearing). You can use the `setMatrix()` function of `QMatrix` to set _m11_, _m12_, _m21_, _m22_, _dx_, _dy_, or directly use the `QPainter::scale()` function to scale the coordinate system; use the `QPainter::rotate()` function to rotate the coordinate system clockwise; use the `QPainter::translate()` function to translate the coordinate system; you can also use `QPainter::shear()` to surround the origin To distort the coordinate system.
-
+![iamge](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QTrasform.PNG)
 ## Translate
 ```cpp
 void Dialog::paintEvent(QPaintEvent *){
@@ -49,3 +49,17 @@ void Dialog::paintEvent(QPaintEvent *)
 ```
 `Shear()` has two parameters, the first is to twist the horizontal direction, the second is to twist the vertical direction, and the value is the degree of distortion. For example, the value of longitudinal distortion in the program is 1, then the left side of the red square is moved down by one unit, and the right side is moved down by two units. A value of 1 indicates that the right side is moved down by one more unit than the left side.
 
+## Rotate
+```cpp
+void Dialog::paintEvent(QPaintEvent *){
+  QPainter painter(this);
+  painter.drawLine(0, 0, 100, 0);
+  painter.rotate(30); // rotate 30 degrees clockwise
+  painter.drawLine(0, 0, 100, 0);     
+  painter.rotate(-30); // rotate 30 degrees counter-clockwise
+  painter.translate(100, 100);    
+  painter.rotate(30);    
+  painter.drawLine(0, 0, 100, 0);
+}
+```
+Here, a horizontal straight line is drawn first, and then the coordinate system is rotated by 30 degrees, and then a straight line is drawn. As you can see, the default rotation is centered on the origin (0, 0). If you want to change the center of rotation, you can use the `translate()` function. For example, here the center is moved to the (100, 100) point, and then rotated by 30 degrees, and then a straight line is drawn. Our original intention was to rotate 30 degrees from the horizontal to draw at the new origin, but the actual effect exceeded 30 degrees. This is because the coordinate system has been rotated through the `rotate()` function before, and the subsequent rotation will be performed on the basis of the previous one.
