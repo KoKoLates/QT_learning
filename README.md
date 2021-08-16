@@ -1,4 +1,4 @@
-# QT_learning
+# Qt learning
 some projects about learning Qt
 
 ## project1 
