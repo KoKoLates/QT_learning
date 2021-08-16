@@ -21,11 +21,12 @@ Simple drawing board with `QEvent`, `QImage`, `QPoint` and `QPainter`
 ### Painter 01
 A simple painter that rewrite the QMouseEvent and QPaintEvent to achieve using mouse clicked, move and release to draw the trace on the widget of window.
 ### painter 02
+#### Double buffers
 Switch the pen to Line, Triangle, Rectangle, Ellipse, Circle function by using the double buffers without Eraser. While using double, the Eraser function will not be able to operate.It has to manipulate like the pen tool.
-#### Double buffers 
+ 
 ### painter 03
-Try to use the `QMatirx` adjust the coordinate of windows and draw a color wheel on the indicate position.
 #### QMatrix
+Try to use the `QMatirx` adjust the coordinate of windows and draw a color wheel on the indicate position.
 
 ## project6
 Simple painter that contain Pen, Line, Triangle, Rectangle, Ellipse and Eraser function. And using the `QFileDialog` and `QColorDialog` to possess the file open and save fuction, and the bulld-in color selector to chahge the color of the pen. Besides, using the basic QSS technique to advance the UI widget.
