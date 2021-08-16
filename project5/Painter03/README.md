@@ -63,3 +63,19 @@ void Dialog::paintEvent(QPaintEvent *){
 }
 ```
 Here, a horizontal straight line is drawn first, and then the coordinate system is rotated by 30 degrees, and then a straight line is drawn. As you can see, the default rotation is centered on the origin (0, 0). If you want to change the center of rotation, you can use the `translate()` function. For example, here the center is moved to the (100, 100) point, and then rotated by 30 degrees, and then a straight line is drawn. Our original intention was to rotate 30 degrees from the horizontal to draw at the new origin, but the actual effect exceeded 30 degrees. This is because the coordinate system has been rotated through the `rotate()` function before, and the subsequent rotation will be performed on the basis of the previous one.
+
+## Coordinate system preservation
+You can use the `save()` function to save the current state of the coordinate system, and then perform the transformation operation. After the operation, use the `restore()` function to restore the previous coordinate system state, which is actually a stacking and popping operation.
+```cpp
+void Dialog::paintEvent(QPaintEvent *){
+  QPainter painter(this);
+  painter.save(); 
+  painter.translate(100,100);
+  painter.drawLine(0, 0, 50, 50);
+  painter.restore(); 
+  painter.drawLine(0, 0, 50, 50);
+}
+```
+
+# Color Wheel
+The color wheel is drawn by setting the "hue" in HSV (Brightness, Hue, Saturation) to complete the rainbow-like effect. The "hue" (Hue) in HSV is the spectroscopic light splitting, mainly red, orange, yellow, Eight main hues of green, blue, purple...etc. "Brightness" is the performance of light and dark, from white to black. In the PCCS (Practical Color Coordinate System) color matching system, it is divided into white, light gray (light, dark), light medium gray, medium gray, Dark gray, dark gray (light, dark), black, etc. "Saturation" is the degree of color saturation. The highest saturation is called "pure color", and the lowest is "no color".
