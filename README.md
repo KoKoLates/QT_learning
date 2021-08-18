@@ -30,3 +30,6 @@ Try to use the `QMatirx` adjust the coordinate of windows and draw a color wheel
 
 ## project6
 Simple painter that contain Pen, Line, Triangle, Rectangle, Ellipse and Eraser function. And using the `QFileDialog` and `QColorDialog` to possess the file open and save fuction, and the bulld-in color selector to chahge the color of the pen. Besides, using the basic QSS technique to advance the UI widget.
+
+## project8
+Simple project that using `QTimer` and its member function to create a counter that could adjust the interval by `spinBox`. And have start, pause and stop (cancel) button to compute and see how much count in a several times.
