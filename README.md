@@ -30,3 +30,6 @@ Simple painter that contain Pen, Line, Triangle, Rectangle, Ellipse and Eraser f
 
 ## project8
 Simple project that using `QTimer` and its member function to create a counter that could adjust the interval by `spinBox`. And have start, pause and stop (cancel) button to compute and see how much count in a several times. [(lesson5)](https://www.notion.so/Qt-Lesson-5-QTimer-QThread-dfcfcd02b9794ae1979560541d3dce36)
+
+## project9
+Simple progressing system that using `QTimer` and `singleshot()` function to set the basic fonts and then using customize `QThread` to set the schedule numbers. Beside, learn how to using `QSrand` and `rand()` to create random number for using. 
