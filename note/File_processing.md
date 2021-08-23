@@ -1,4 +1,4 @@
-# file I/O
+# File processing
 ## main include
 ```cpp
 #include <QfileDialog>
