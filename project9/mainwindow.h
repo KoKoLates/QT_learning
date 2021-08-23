@@ -31,8 +31,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QTimer *timer;
-    QThread *thread;
+    QTimer *timer = 0;
+    QThread *thread = 0;
 };
 
 #endif // MAINWINDOW_H
