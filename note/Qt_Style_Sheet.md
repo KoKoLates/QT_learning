@@ -20,7 +20,7 @@ The style sheet is composed of a series of style rules. Each rule can be divided
 Selector{declaration} 
 ```
 Qt's style sheet is not case sensitive in properties, but when referring to the class name, it is case sensitive. Multiple selectors can be used side by side, separated by _commas_. And the declaration part can also have multiple parallels, separated by _semicolons_. When the selector we want to set has multiple attributes, we need to parallel multiple declarations.
-```css
-Selector1, Selector2, Selector3{declaration} /*multiple selecctor*/
-Selector{declaration1; declaration2; declaration3} /*multiple declaration*/
+```
+Selector1, Selector2, Selector3{declaration} //multiple selecctor
+Selector{declaration1; declaration2; declaration3} //multiple declaration
 ```
