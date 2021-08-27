@@ -14,6 +14,7 @@ this->setStyleSheet(stylesheet);
 
 file.close();
 ```
+
 ## Basic Grammar
 The style sheet is composed of a series of style rules. Each rule can be divided into two parts: selector and declaratio. The selector indicates which controls the rule is applied to; the declaration details what the rule is.
 ```css
@@ -24,3 +25,7 @@ Qt's style sheet is not case sensitive in properties, but when referring to the 
 Selector1, Selector2, Selector3{declaration} //multiple selecctor
 Selector{declaration1; declaration2; declaration3} //multiple declaration
 ```
+
+## Selector
+### Universal Selector
+`*` 
