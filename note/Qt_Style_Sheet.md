@@ -22,8 +22,8 @@ Selector {declaration;}
 ```
 Qt's style sheet is not case sensitive in properties, but when referring to the class name, it is case sensitive. Multiple selectors can be used side by side, separated by ***commas***. And the declaration part can also have multiple parallels, separated by ***semicolons***. When the selector we want to set has multiple attributes, we need to parallel multiple declarations.
 ```css
-Selector1, Selector2, Selector3 {declaration} //multiple selecctor
-Selector {declaration1; declaration2; declaration3} //multiple declaration
+Selector1, Selector2, Selector3 {declaration} /*multiple selecctor*/
+Selector {declaration1; declaration2; declaration3} /*multiple declaration*/
 ```
 
 ## Selector
@@ -31,11 +31,32 @@ Selector {declaration1; declaration2; declaration3} //multiple declaration
 `*` Used to select all Widgets. It can be restricted to a specific namespace or all namespaces.
 ### Element Selector
 ```css
-QPushButton {background: gray;}
+QPushButton {background: gray; }
 ```
 Match all QPushButton and its derived subclass objects.
 ### Arrttibute Selector
 ```css
-QPushButton[flat = " false"] {background: magenta;}
+QPushButton[flat = " false"] {background: magenta; }
 ```
 Match all QPushButton instances whose flat attribute is false. Note that this attribute can be a custom attribute, not necessarily an attribute of the class itself.
+### Class Selector
+```css
+.redButton {background: magenta; }
+```
+Matches all instances of QPushButton, but does not match its subclasses, note that there is a dot in front.
+### ID Selector
+```css
+#myButton {background: magenta; }
+```
+Match all QPushButton objects whose object name is myButton. The id here is actually the value specified by objectName.
+### Descendant Selector
+```css
+QDialog {backgrounf: gray; }
+QDialog QPushButton {
+    border: 2px solid magenta;
+    border-radius: 10px;
+    background: white;
+    padding: 2px 15px;
+}
+```
+
