@@ -59,4 +59,22 @@ QDialog QPushButton {
     padding: 2px 15px;
 }
 ```
-
+All QPushButtons contained in the QDialog container, whether direct or indirect.
+### Child Selector
+```css
+QFrame {background: gray; }
+QFrame > QPushButton{
+    border: 2px solid magenta;
+    border-radius: 10px;
+    background: white;
+    padding: 2px 15px;
+}
+```
+QPushButton under all QFrame containers, where the direct parent container of QPushButton is required to be QFrame.
+### Pseudo Selector
+```css
+QPushButton:hover {background: white }
+QCheckBox:checked {background: white }
+QCheckBox:!checked {background: red }
+```
+`Selector: State` As a selector, it supports the `!` Operator, which means not.
