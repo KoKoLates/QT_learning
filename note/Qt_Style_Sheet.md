@@ -31,50 +31,59 @@ Selector {declaration1; declaration2; declaration3} /*multiple declaration*/
 `*` Used to select all Widgets. It can be restricted to a specific namespace or all namespaces.
 ### Element Selector
 ```css
-QPushButton {background: gray; }
+QPushButton {background-color: gray; }
 ```
 Match all QPushButton and its derived subclass objects.
 ### Arrttibute Selector
 ```css
-QPushButton[flat = " false"] {background: magenta; }
+QPushButton[flat = " false"] {background-color: magenta; }
 ```
 Match all QPushButton instances whose flat attribute is false. Note that this attribute can be a custom attribute, not necessarily an attribute of the class itself.
 ### Class Selector
 ```css
-.redButton {background: magenta; }
+.redButton {background-color: magenta; }
 ```
 Matches all instances of QPushButton, but does not match its subclasses, note that there is a dot in front.
 ### ID Selector
 ```css
-#myButton {background: magenta; }
+QPushButton #myButton {background-color: magenta; }
 ```
 Match all QPushButton objects whose object name is myButton. The id here is actually the value specified by objectName.
 ### Descendant Selector
 ```css
-QDialog {backgrounf: gray; }
+QDialog {background-color: gray; }
 QDialog QPushButton {
     border: 2px solid magenta;
     border-radius: 10px;
-    background: white;
+    background-color: white;
     padding: 2px 15px;
 }
 ```
 All QPushButtons contained in the QDialog container, whether direct or indirect.
 ### Child Selector
 ```css
-QFrame {background: gray; }
+QFrame {background-color: gray; }
 QFrame > QPushButton{
     border: 2px solid magenta;
     border-radius: 10px;
-    background: white;
+    background-color: white;
     padding: 2px 15px;
 }
 ```
 QPushButton under all QFrame containers, where the direct parent container of QPushButton is required to be QFrame.
+#### Sub-controls
+For more complex controls, it is often composed of multiple sub-controls. For example, QComboBox is composed of text boxes and drop-down buttons. For Qt Style Sheet, we allow us to style the sub-controls separately, which greatly enhances the flexibility of styles.
+```css
+QComboBox::drop-down { background-color: brown; }
+
+::down-arrow /*the drop down part of combo box and spin box*/
+::drop-down /*the drop down part of 
+```
 ### Pseudo Selector
 ```css
-QPushButton:hover {background: white }
-QCheckBox:checked {background: white }
-QCheckBox:!checked {background: red }
+QPushButton:pressed {background-color: red }
+QPushButton:hover {background-color: white }
+QCheckBox:checked {background-color: white }
+QCheckBox:!checked {backgroundcolor: red }
 ```
 `Selector: State` As a selector, it supports the `!` Operator, which means not.
