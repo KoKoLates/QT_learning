@@ -78,12 +78,27 @@ QComboBox::drop-down { background-color: brown; }
 
 ::down-arrow /*the drop down part of combo box and spin box*/
 ::drop-down /*the drop down part of combo box*/
+::indicator /*the indicator part of the check box, radio button and selectable group box*/
+::item /*the sub item of menu, menu bar and status bar*/
+::menu-indicator /*the menu indicator of push button*/
+::title /*the title part of group box*/
+::down-button /*downward part of spin box*/
+::up-arrow /*upward part  of spin box*/
+::up-button /*upward push button part of spin box*/
 ```
 ### Pseudo Selector
 ```css
-QPushButton:pressed {background-color: red }
-QPushButton:hover {background-color: white }
-QCheckBox:checked {background-color: white }
-QCheckBox:!checked {backgroundcolor: red }
+QPushButton:pressed {background-color: red; }
+QPushButton:hover {background-color: red; }
+QCheckBox:!checked {backgroundcolor: red; }
+
+:checked 
+:unchecked / :!checked
+:disabled / :enabled
+:focus
+:hover
+:indeterminate
+:off / :on
+:pressed
 ```
 `Selector: State` As a selector, it supports the `!` Operator, which means not.
