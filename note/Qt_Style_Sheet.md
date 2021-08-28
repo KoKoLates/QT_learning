@@ -77,7 +77,7 @@ For more complex controls, it is often composed of multiple sub-controls. For ex
 QComboBox::drop-down { background-color: brown; }
 
 ::down-arrow /*the drop down part of combo box and spin box*/
-::drop-down /*the drop down part of 
+::drop-down /*the drop down part of combo box*/
 ```
 ### Pseudo Selector
 ```css
