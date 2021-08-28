@@ -93,7 +93,7 @@ QPushButton:hover {background-color: red; }
 QCheckBox:!checked {backgroundcolor: red; }
 
 :checked 
-:unchecked / :!checked
+:unchecked (:!checked )
 :disabled / :enabled
 :focus
 :hover
