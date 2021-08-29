@@ -41,7 +41,7 @@ QPushButton[flat = " false"] {background-color: magenta; }
 Match all QPushButton instances whose flat attribute is false. Note that this attribute can be a custom attribute, not necessarily an attribute of the class itself.
 ### Class Selector
 ```css
-.redButton {background-color: magenta; }
+.QPushButton {background-color: magenta; }
 ```
 Matches all instances of QPushButton, but does not match its subclasses, note that there is a dot in front.
 ### ID Selector
@@ -92,13 +92,13 @@ QPushButton:pressed {background-color: red; }
 QPushButton:hover {background-color: red; }
 QCheckBox:!checked {backgroundcolor: red; }
 
-:checked 
-:unchecked (:!checked )
-:disabled / :enabled
-:focus
-:hover
-:indeterminate
-:off / :on
-:pressed
+:checked /*button part is selected*/
+:unchecked (:!checked ) /*button part has not been selected*/
+:disabled / :enabled /*the part is useful or not*/
+:focus /*the part is got focus*/
+:hover /*the mouse is on the part*/
+:indeterminate /*some parts of check box or radio box is selected*/
+:off / :on /*the part is switchable, and it's in off or on mode*/
+:pressed /*the part is been pressed by mouse*/
 ```
 `Selector: State` As a selector, it supports the `!` Operator, which means not.
