@@ -38,7 +38,7 @@ Match all QPushButton and its derived subclass objects.
 ```css
 QPushButton[flat = " false"] {background-color: magenta; }
 ```
-Match all QPushButton instances whose flat attribute is false. Note that this attribute can be a custom attribute, not necessarily an attribute of the class itself.
+Match all QPushButton instances whose flat attribute is false. Note that this attribute can be a custom attribute, not necessarily an attribute of the class itself. It also could set the `objectName` to be the attrinute that could indicate the elemant we wanted.
 ### Class Selector
 ```css
 .QPushButton {background-color: magenta; }
@@ -102,3 +102,13 @@ QCheckBox:!checked {backgroundcolor: red; }
 :pressed /*the part is been pressed by mouse*/
 ```
 `Selector: State` As a selector, it supports the `!` Operator, which means not.
+
+## General Attribute
+### Font
+```css
+font /*setting all attributes in one declaretion*/
+font-family /*set the type of the font*/
+font-size
+font-stye /*set oblique, italic or normal*/
+
+```
