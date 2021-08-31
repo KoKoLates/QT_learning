@@ -12,5 +12,17 @@ The event is basically asynchronous, usually sent by the window or the system, s
 ## Graphic Elements
 
 ## General API
+Qt is no longer just a GUI framework, it provides a rich API that can be used as the basis for writing applications.
+### Container
+QString is one of the commonly used categories, with some similar features to containers, and Qt provides a series of general container classes, which is more lightweight and safe to use.
+### File Processing 
+File input and output is a must for an application. Through file input and output, you can also understand Qt's I/O processing.
+### Paint System
+
+### Drag and Drop
+
+### Web
 
 ## Advance
+
+### Multithreading
