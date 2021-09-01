@@ -195,8 +195,8 @@ After setting the font, you can use the `fontMetrics()` method to obtain the geo
 Can only draw graphics in `QWidget::paintEvent`
 ```cpp
 void paintEvent(QPaintEvent *event){
-  QPainter painter(this);
-  painter.drawLine(QPoint(10,10), QPoint(100,100));
+    QPainter painter(this);
+    painter.drawLine(QPoint(10,10), QPoint(100,100));
 }
 ```
 Different types of drawing functions, see [`QPainter::members`](https://doc.qt.io/qt-5/qpainter-members.html) to obtain detailed parameters of each functions.

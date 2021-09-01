@@ -1,4 +1,4 @@
-# file I/O
+# File processing
 ## main include
 ```cpp
 #include <QfileDialog>
@@ -30,7 +30,7 @@ while(!input.atEnd()){QString line = input.readline();}
 Use QTextStream to package QFile in the program, use `atEnd()` function in QTextStream to test whether the text file ends, use `readLine()` to read in the data and package it as QString.
 ```cpp
 QTextStream output(&fileWrite);
-  output<<UserInput<<Qt::endl;
+    output<<UserInput<<Qt::endl;
 ```
 Using the `<<` operator to write the text to the file
 ### QDataStream
@@ -51,11 +51,11 @@ The defalt of unicode is UTF-8, as any file using other form will get corrupt
 ```cpp
 QFile fileRead(filePath); 
 if(fileRead.open(QIODevice::ReadOnly)){
-  QTextStream input(&fileRead);  
-  input.setCodec("UTF-8");
-  while(!input.atEnd()){
-    QString line = input.readline();
-    ui->textBrowser->append(line.toStdString().c_str());
+    QTextStream input(&fileRead);  
+    input.setCodec("UTF-8");
+    while(!input.atEnd()){
+        QString line = input.readline();
+        ui->textBrowser->append(line.toStdString().c_str());
   }
   fileRead.close();
 }
@@ -68,9 +68,9 @@ QString UserInput = ui->lineEdit->text();
 
 QFile fileWrite(filePath);
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text )){
-  QTextStream output(&fileWrite);
-  output<<UserInput<<Qt::endl;
-  fileWrite.close();
+    QTextStream output(&fileWrite);
+    output<<UserInput<<Qt::endl;
+    fileWrite.close();
 }
 ```
 
@@ -143,7 +143,7 @@ if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
  Using QString as the UserInput
  ```cpp
 //using commas to separate in the string
- QFile fileWrite(filePath);
+QFile fileWrite(filePath);
 if(fileWrite.open(QIODevice::WriteOnly | QIODevice::Append)){
     fileWrite,write(QString);
 FileWrite.close();
