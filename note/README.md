@@ -13,11 +13,11 @@ The event is basically asynchronous, usually sent by the window or the system, s
 
 ## General API
 Qt is no longer just a GUI framework, it provides a rich API that can be used as the basis for writing applications.
-### Container
+### [Container](https://github.com/KoKoLates/Qt-learning/blob/main/note/Container_element.md)
 QString is one of the commonly used categories, with some similar features to containers, and Qt provides a series of general container classes, which is more lightweight and safe to use.
-### File Processing 
+### [File Processing](https://github.com/KoKoLates/Qt-learning/blob/main/note/File_processing.md) 
 File input and output is a must for an application. Through file input and output, you can also understand Qt's I/O processing.
-### Paint System
+### [Paint System](https://github.com/KoKoLates/Qt-learning/blob/main/note/Paint_system.md)
 
 ### Drag and Drop
 
@@ -26,3 +26,5 @@ File input and output is a must for an application. Through file input and outpu
 ## Advance
 
 ### Multithreading
+
+### [QSS](https://github.com/KoKoLates/Qt-learning/blob/main/note/Qt_Style_Sheet.md)
