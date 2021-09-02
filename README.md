@@ -12,3 +12,5 @@ Open the Qt's command line tool that exist in the [Qt](https://github.com/KoKoLa
 ```
 ## Project
 Some projects of learning Qt in C++ language.
+### [Project1](https://github.com/KoKoLates/Qt-learning/tree/main/project1)
+A Basic ordering system that that give the user several selections of meal, beverage and payment method. It calculates the total money with discount and show on the window automatically. Mainyly learning about Qt creater and how to use the slot of object in Qt designer.## [Lesson1](https://www.notion.so/Qt-Lesson-1-HelloWorld-06030c9831854e3489f8d89e70b03615)
