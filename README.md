@@ -11,4 +11,4 @@ Open the Qt's command line tool that exist in the [Qt](https://github.com/KoKoLa
 > winddeployqy.exe release whole path
 ```
 ## Project
-Some projects of learning Qt in c++ language.
+Some projects of learning Qt in C++ language.
