@@ -11,10 +11,10 @@ QPainter painter(qPaintDevice);
 The members of the QPainter class: `QBrush`, `QPen` and `QFont`.
 ### QBrush
 QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.
-#### Style
+#### Style <hr/>
 `style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushStyle.png)
-#### Color
+#### Color <hr/>
 `color()` defines the color of the fill mode. This color can be a Qt predefined color constant, which is [`Qt::GlobalColor`](https://doc.qt.io/qt-5/qt.html#GlobalColor-enum), or it can be any QColor object.
 ```cpp
 #include <QColorDialog>
@@ -24,7 +24,7 @@ QColor color = QColorDialog::getColor(Qt::black,this,tr("Color Selector"),QColor
 ```
 Ones could use the Qt standard dialog box to get select the color and stores it in the QColor object.<br>
 [`QColorDialog::ColorDialogOption`](https://doc.qt.io/qt-5/qcolordialog.html#ColorDialogOption-enum)
-#### Gradient
+#### Gradient <hr/>
 `gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient. Gradient colors need to be specified using two attributes: stop-point and color. 
 ```cpp
 void QGradient::setColorAt( qreal postion, const QColor &color)
@@ -84,7 +84,7 @@ QRadialGradient(qreal cx, qreal cy, qreal centerRadius, qreal fx, qreal fy, qrea
 <br>
 Note that `QGradient::Spread` only has an effect on linear gradients and radial gradients, because these two types of gradients have boundaries, while the conical gradients have a gradient range of 0 to 360 degrees, so there is no gradient boundary.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushGradient.png)
-#### Texture
+#### Texture <hr/>
 ```cpp
 QBrush.setTexture(QPixmap pixmap);
 ``` 
