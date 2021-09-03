@@ -183,6 +183,8 @@ painter.drawRect(rect)
 painter.setPen(QColor(Qt::black));
 painter.drawText(rect, Qt::AlignHCenter, "texts");
 ```
+<hr/>
+
 #### QFont
 In order to draw beautiful text, you can use the `QFont` class to set the text font.
 ```cpp
@@ -207,6 +209,8 @@ Besides, several other functions are used to format the font. `setCapitalization
 void QFont::setLetterSpacing(QFont::SpacingType type, qreal spacing)
 ```
 Sets the letter spacing for the font to spacing and the type of spacing to type.Letter spacing changes the default spacing between individual letters in the font. The spacing between the letters can be made smaller as well as larger either in percentage of the character width or in pixels, depending on the selected spacing type. Finally, call the `setFont()` function to use the font, and use another overloaded form of the `drawText()` function to draw the text at the point (150,100).
+<hr/>
+
 #### QFontMetrics
 After setting the font, you can use the `fontMetrics()` method to obtain the geometric information of the font, such as _ascent_ (the distance from the highest point of the character to the baseline of the character), _descent_ (the distance from the lowest point of the character to the bottom of the character), _leading_ ( The space value between two lines) _height_ (the height of the font when printing, equivalent to _ascent_ + _descent_ + 1, 1 pixel is the height of the bottom line of the character) and _linespacing_ (_height_ + _leading_).<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QFontMetrics.PNG)
@@ -233,6 +237,8 @@ pix.load("filePath"); // absolute or relative path
 painter.drawPixmap(0, 0, 100, 80, pix); 
 ```
 The `drawPixmap()` function draws a picture in a given rectangle, where the upper left corner of the rectangle is (0, 0) point, width 100, height 80. If this is not the same size as the picture, the picture will be stretched by default.
+<hr/>
+
 #### Size
 We can use the `scaled()` function in the `QPixmap` class to zoom in and out of the picture :
 ```cpp
@@ -248,6 +254,8 @@ painter.drawPix(50, 50, pix);
 ```
 ![image](https://github.com/KoKoLates/Qt_learning/blob/main/note/images/AspectRatio.PNG)<br>
 `Qt::IgnoreAspectRatio` does not keep the aspect ratio of the picture, `Qt::KeepAspectRatio` keeps the aspect ratio in the given rectangle and `Qt::KeepAspectRatioByExpanding`  also keeps the aspect ratio, but may exceed the given rectangle.
+<hr/>
+
 #### QBitmap
 `QBitmap` is a subclass of `QPixmap`, which provides monochrome images, which can be used to make cursors (QCursor) or brushes (QBrush) objects.
 ### QImage
