@@ -30,7 +30,7 @@ Ones could use the Qt standard dialog box to get select the color and stores it 
 void QGradient::setColorAt( qreal postion, const QColor &color)
 ```
 You can use the `QGradient::setColorAt()` function to set a single stop-point and color. The stop-point is represented by a value between 0 and 1, and 0 means Start-point, 1 means End-point. And ones could also indicate the color in the assigned position.<br>
-##### QLinearGradient 
+* QLinearGradient 
 ```cpp
 QPainter painter(this);
 QLinearGradient linearGradient(0, 0, 100, 100); // gradient from (0,0) to (100,100)
@@ -45,7 +45,7 @@ Then could create a rectangle from (10,10) to (50,50) that with linearGradient t
 QLinearGradient linearGradient(QPoint(0,0), QPoint(100,100));
 // or using QPointF to store the coordinate postion in float data and display the gradient more accurately
 ```
-##### QConicalGradient
+* QConicalGradient
 ```cpp
 QPainter painter(this);
 const int R = 100; // declare the radius of the circle
@@ -64,7 +64,7 @@ painter.setBrush(QBrush brush(conicalGradient));
 painter.drawEllipse(QPoint(0, 0), R, R);
 ```
 Then that could create a color wheel, without edge lines. From the code above, we could find that the first and second parameters of `QConicalGradient` is the postition of the center point, so that could be replace by `QPoint`, and the third parameter is initial angle of Cartesian Coordination. Besides, `QPainter::translate(x, y)` function means to set the origin of the coordinate system to the point (x, y). In the above code, the position (100,100) is set to be the origin of the coordinate.
-##### QRadialGradient
+* QRadialGradient
 ```cpp
 QPainter painter(this);
 QRadialGradient radialGradient(QPoint(200,200),200,QPoint(250,250),50);
