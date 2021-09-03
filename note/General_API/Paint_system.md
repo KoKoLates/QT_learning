@@ -12,6 +12,7 @@ The members of the QPainter class: `QBrush`, `QPen` and `QFont`.
 ### QBrush
 QBrush defines the filling mode of QPainter, which has some properties such as style, color, gradient, and texture.
 <hr/>
+
 #### Style 
 `style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushStyle.png)
@@ -28,6 +29,7 @@ QColor color = QColorDialog::getColor(Qt::black,this,tr("Color Selector"),QColor
 Ones could use the Qt standard dialog box to get select the color and stores it in the QColor object.<br>
 [`QColorDialog::ColorDialogOption`](https://doc.qt.io/qt-5/qcolordialog.html#ColorDialogOption-enum)
 <hr/>
+
 #### Gradient
 `gradient()` defines a gradient fill. This property is only valid when the style is one of `Qt::LinearGradientPattern`, `Qt::RadialGradientPattern` or `Qt::ConicalGradientPattern`. Gradients can be represented by QGradient objects. Qt provides three gradients: QLinearGradient, QConicalGradient and QRadialGradient, they are all subclasses of QGradient. Gradient colors need to be specified using two attributes: stop-point and color. 
 ```cpp
@@ -89,6 +91,7 @@ QRadialGradient(qreal cx, qreal cy, qreal centerRadius, qreal fx, qreal fy, qrea
 Note that `QGradient::Spread` only has an effect on linear gradients and radial gradients, because these two types of gradients have boundaries, while the conical gradients have a gradient range of 0 to 360 degrees, so there is no gradient boundary.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushGradient.png)
 <hr/>
+
 #### Texture
 ```cpp
 QBrush.setTexture(QPixmap pixmap);
@@ -103,12 +106,15 @@ Could also set the brush be a image.
 ### QPen
 Used to draw the edges of geometric figures, composed of parameters such as color, width, line style. QPen contains different properties such as brush, width, style, capStyle and joinStyle.
 <hr/>
+
 #### Brush
 `brush()` is used to fill the lines drawn by the brush, it decides the color or image of the pen. The detailed introductions could see the color of QBrush.
 <hr/>
+
 #### Width
 The width of the pen `width()` or `widthF()` (float data) defines the width of the pen. Note that there is no line with a width of 0. Suppose you set the width to 0, QPainter will still draw a line, and the width of this line is 1 pixel. In other words, the brush width is usually at least 1 pixel.
 <hr/>
+
 #### Style
 `style()` defines the style of the line. <br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenStyle.png) <br>
@@ -122,16 +128,19 @@ dashes << 1 << space << 3 << space << 9 << space << 27 << space << 9 << space;
 pen.setDashPattern(dashes);
 ```
 <hr/>
+
 #### CapStyle
 `capStyle()` defines the end of the line drawn using QPainter. <br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle01.png) <br>
 The difference between them is that `Qt::SquareCap` is a square cap that contains the last point and is covered by half the line width; `Qt::FlatCap` does not contain the last point; `Qt::RoundCap` contains the last point Round end : <br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle02.png)
 <hr/>
+
 #### JoinStyle
 `joinStyle()` defines how the two lines are connected.<br><br>
 ![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenJoinStyle02.png)<br><br>
 <hr/>
+
 #### Construct
 Using the constructor to reset the style of the pen.
 ```cpp
