@@ -8,7 +8,7 @@ git clone https://github.com/KoKoLates/Qt-learning/Qt.git
 Open the Qt's command line tool that exist in the [Qt](https://github.com/KoKoLates/Qt-learning/tree/main/Qt_installation) file.
 ```
 > cd bin
-> winddeployqy.exe release whole path
+> winddeployqy.exe release's whole path
 ```
 ## Project
 Some projects of learning Qt in C++ language.
