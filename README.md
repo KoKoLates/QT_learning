@@ -2,9 +2,9 @@
 Qt is a widget toolkit for creating graphical user interfaces (GUI) as well as cross-platform applications that run on various software and hardware platforms. 
 
 ```
-git clone https://github.com/KoKoLates/Qt-learning/Qt.git
+git clone https://github.com/KoKoLates/Qt-learning/Qt_installation.git
 ```
-## Deploy 
+## Package deployment
 Open the Qt's command line tool that exist in the [Qt](https://github.com/KoKoLates/Qt-learning/tree/main/Qt_installation) file.
 ```
 > cd bin
