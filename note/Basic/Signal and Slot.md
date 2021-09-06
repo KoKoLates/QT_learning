@@ -7,25 +7,27 @@ A signal can be emitted when a special event occurs, such as a button being clic
 ![image](https://raw.githubusercontent.com/KoKoLates/Qt-learning/main/note/images/SignalAndSlot.PNG)
 
 ## Signal
-Self-declare the signal in one's class's header file :
+In the header file, add that code to declare a signals :
 ```cpp
-signal :
+signals :
     void SendSignal(); // the parameter could be empty or other data type
 ```
-To declare a signal, use the signals keyword, and you cannot use public, private, and protected qualifiers before signals, because only the class that defines the signal and its subclasses can emit the signal. Moreover, the signal only needs to be declared, and it is not required to define the implement of the function. Also note that the signal has no return value and can only be of type void. Because only classes derived from the QObject class and its subclasses can use the signal and slot mechanism, so that note that add the `Q_OBJECT` in the beginning of the class.
+To declare a signal, using the `signals` keyword is needed, and you cannot use public, private, and protected qualifiers before signals, because only the class that defines the signal and its subclasses can emit the signal. Moreover, the signal only needs to be declared, and it is not required to define the implement of the function. Also note that the signal has no return value and can only be of type void. Because only classes derived from the QObject class and its subclasses can use the signal and slot mechanism, so note that it's neccessary to add the `Q_OBJECT` micro in the most beginning of such class.
 ```cpp
 void MainWindow::buttonClicked(){
     emit SendSignal();
 }
 ```
-Define a function that as it was called, then using `emit` to send the signal to corresponding slots.
-
+Define a function that if it was called, then using `emit` to send the signal to corresponding slots.
 
 
 ## Slot
-In the class's declaration's header file, ones could seld-define the needed slots :
+In the header file, add the code to declare s slots :
 ```cpp
 public slots:
     void RequireSignal();
 ```
-Declaring a slot requires the use of the slots keyword. A slot can be of private, public, or protected type, and the slot can also be declared as a virtual function, which is the same as a normal member function, and it can also be called like a normal function. The biggest feature of slots is that they can be associated with signals.
+Declaring a slot requires the use of the `slots` keyword. A slot could be of private, public, or protected type, and the slot can also be declared as a virtual function, which is the same as a normal member function, and it can also be called like a normal function. The biggest feature of slots is that they can be associated with signals.
+
+
+## Connect
