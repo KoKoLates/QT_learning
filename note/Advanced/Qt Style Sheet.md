@@ -71,7 +71,7 @@ QFrame > QPushButton{
 }
 ```
 QPushButton under all QFrame containers, where the direct parent container of QPushButton is required to be QFrame.
-* **Sub-controls**
+* **Sub-controls** <br/>
 For more complex controls, it is often composed of multiple sub-controls. For example, QComboBox is composed of text boxes and drop-down buttons. For Qt Style Sheet, we allow us to style the sub-controls separately, which greatly enhances the flexibility of styles.
 ```css
 QComboBox::drop-down { background-color: brown; }
