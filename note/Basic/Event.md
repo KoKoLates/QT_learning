@@ -31,6 +31,20 @@ void Widget::closeEvent(QCloseEvent *event){
     qDebug() << "QCloseEvent : Widget closed";
 }
 ```
+If you run this application, you’ll going to see a usual boring widget. But if you click on the X icon in the top bar to close the window, you’ll see that your widget closes and the debug message display.<br/><br/>
+
+This is the normal flow you’re going to follow to implement your events :
+* Subclass your Qt class of interest
+* Override the event you are interested in <br/>
+
+* **Accept / Ignore**
+```cpp
+event->accept();
+event->ignore();
+```
+When you handle an event, you have the option to ACCEPT the event, or to IGNORE the event. When you accept the event, by calling the `accept()` method on your event parameter, you’re signaling to the Qt framework that you have dealt with the event and it won’t try to handle it in any other way. Besides, if you don’t explicitly specify that you accept the event, the event is going to be accepted by default.<br/><br/>
+
+When you ignore the event by calling `ignore()` on your event parameter, you’re telling the Qt framework that you’re rejecting the event, and it will try to find other ways to handle the event if possible. 
 
 ## Events Propagation
 
