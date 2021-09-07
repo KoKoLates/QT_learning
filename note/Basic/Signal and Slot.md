@@ -49,3 +49,22 @@ For signals and slots, you must use the `SIGNAL()` and `SLOT()` macros, which ca
 
 The last parameter indicates the way of association. Its default value is `Qt::AutoConnection`. After using `emit` to send a signal, The slot will be executed, and the code following the emit statement will be executed only after the slot has been executed. You can also change this parameter to `Qt::QueuedConnection`, so that the code behind it will be executed immediately after the emit statement is executed, regardless of whether the slot has been executed. When this association is no longer used, you can also use the `disconnect()` function to disconnect the association.
 
+* **Connect Automatically**
+```cpp
+public slots:
+    void on_Button_clicked();
+```
+Signals and slots also has the way to connect automatically. `"on"`, the `objectName` of the component and the `signal` are composed of three parts, separated by an underscore. In this way, the slot of the name of the organization can be directly associated with the signal without using the `connect()` function. However, other settings must be made in this way.
+```cpp
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+{
+    QPushButton *button = new QPushButton(this);
+    button->setObjectName("Button");
+    ui->setupUi(this); //call this function after the component is created
+}
+```
+Because the `connectSlotsByName()` function is called in the `setupUi()` function, the definitions of the components to be automatically associated must be placed before the `setupUi()` function, and their objectName must be specified using the `setObjectName()` function. Only in this way can it be normal Use automatic association. <br/><br/> 
+
+In view of these constraints, although automatic association is very simple in form, it is rarely used in actual code writing. Moreover, when defining a component, it is very desirable to use the `connect()` function to associate signals and slots with it, so that when others see the component definition, they can know the correlation of the signals and slots related to it.
