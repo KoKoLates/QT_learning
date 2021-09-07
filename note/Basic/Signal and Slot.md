@@ -10,12 +10,16 @@ A signal can be emitted when a special event occurs, such as a button being clic
 In the header file, add that code to declare a signals :
 ```cpp
 signals :
-    void SendSignal(); // the parameter could be empty or other data type
+    void SendSignal();
+    void SendSignal(int x);
+    void SendSignal(int x, int y);
 ```
 To declare a signal, using the `signals` keyword is needed, and you cannot use public, private, and protected qualifiers before signals, because only the class that defines the signal and its subclasses can emit the signal. Moreover, the signal only needs to be declared, and it is not required to define the implement of the function. Also note that the signal has no return value and can only be of type void. Because only classes derived from the QObject class and its subclasses can use the signal and slot mechanism, so note that it's neccessary to add the `Q_OBJECT` micro in the most beginning of such class.
 ```cpp
 void MainWindow::buttonClicked(){
     emit SendSignal();
+    emit SendSignal(int);
+    emit SendSignal(int,int);
 }
 ```
 Define a function that if it was called, then using `emit` to send the signal to corresponding slots.
@@ -26,6 +30,8 @@ In the header file, add the code to declare s slots :
 ```cpp
 public slots:
     void RequireSignal();
+    void RequireSignal(int x);
+    void RequireSignal(int x, int y);
 ```
 Declaring a slot requires the use of the `slots` keyword. A slot could be of private, public, or protected type, and the slot can also be declared as a virtual function, which is the same as a normal member function, and it can also be called like a normal function. The biggest feature of slots is that they can be associated with signals.
 
@@ -48,6 +54,20 @@ SLOT(RequireSignal())
 For signals and slots, you must use the `SIGNAL()` and `SLOT()` macros, which can convert their parameters to const `char*` data types. The return value of the `connect()` function is of type bool, and it returns true when the association is successful. Also note that when calling this function, the parameters of signals and slots can only have types, not variables. Basically, the parameter types in the signal correspond to the parameter types in the slot, and the parameters in the signal can be more than the parameters in the slot, but not the other way around. If there is extra in the signal Parameters, then they will be ignored. <br/><br/>
 
 The last parameter indicates the way of association. Its default value is `Qt::AutoConnection`. After using `emit` to send a signal, The slot will be executed, and the code following the emit statement will be executed only after the slot has been executed. You can also change this parameter to `Qt::QueuedConnection`, so that the code behind it will be executed immediately after the emit statement is executed, regardless of whether the slot has been executed. When this association is no longer used, you can also use the `disconnect()` function to disconnect the association.
+```cpp
+// disconnect all
+disconnect(sender, 0, 0, 0);
+sender->disconnect();
+
+// disconnect specific signal
+disconnect(sender, SIGNAL(SendSignal()), 0, 0);
+sebder->disconnect(SIGNAL(SendSignal()));
+
+// disconnect with reeciever
+discnnect(sender, 0, reciever, 0);
+sender->disconnect(reciever);
+```
+In the `disconnect` function, 0 can be used as a wildcard, representing any signal, any receiving object, and any slot function in the receiving object, respectively. But the sender cannot be 0.
 
 * **Connect Automatically**
 ```cpp
