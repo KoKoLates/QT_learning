@@ -36,6 +36,7 @@ If you run this application, you’ll going to see a usual boring widget. But if
 This is the normal flow you’re going to follow to implement your events :
 * Subclass your Qt class of interest
 * Override the event you are interested in <br/>
+<hr/>
 
 * **Accept / Ignore**
 ```cpp
