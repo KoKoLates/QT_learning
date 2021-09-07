@@ -31,3 +31,13 @@ Declaring a slot requires the use of the `slots` keyword. A slot could be of pri
 
 
 ## Connect
+Signals and slots are associated using the `connect()` function of the QObject class. The prototype of this function is as follows :
+```cpp
+bool QObject::connect( const QObject *sender, const char *signal, const QObject *reciever, const chat *method, Qt::ConnectionType type = Qt::AutoConnection) 
+```
+The first parameter is the object to send the signal, such as another class or components; the second parameter is the signal to be sent, generally formated like `SIGNAL(signal())`; the third parameter is the object to receive the signal, generally it's `this`, indicating the MainWindow, namely Widget. When this parameter is `this`, that parameter can also be omitted, because the `connect()` function has another overloaded form, which defaults to `this`; and the fourth parameter is the slot to be executed , like `SLOT(function())`. <br/><br/>
+
+For signals and slots, you must use the `SIGNAL()` and `SLOT()` macros, which can convert their parameters to const `char*` data types. The return value of the `connect()` function is of type bool, and it returns true when the association is successful. Also note that when calling this function, the parameters of signals and slots can only have types, not variables. Basically, the parameter types in the signal correspond to the parameter types in the slot, and the parameters in the signal can be more than the parameters in the slot, but not the other way around. If there is extra in the signal Parameters, then they will be ignored. <br/><br/>
+
+The last parameter indicates the way of association. Its default value is `Qt::AutoConnection`. After using `emit` to send a signal, The slot will be executed, and the code following the emit statement will be executed only after the slot has been executed. You can also change this parameter to `Qt::QueuedConnection`, so that the code behind it will be executed immediately after the emit statement is executed, regardless of whether the slot has been executed. When this association is no longer used, you can also use the `disconnect()` function to disconnect the association.
+
