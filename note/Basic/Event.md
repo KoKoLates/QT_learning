@@ -48,6 +48,13 @@ When you handle an event, you have the option to ACCEPT the event, or to IGNORE 
 When you ignore the event by calling `ignore()` on your event parameter, you’re telling the Qt framework that you’re rejecting the event, and it will try to find other ways to handle the event if possible. 
 
 ## Events Propagation
+In normal cases, Qt will try to propagate the event up the parent child relationship chain until it finds a handler willing to deal with the event. If that handler is not found, then the event is discarded or fully ignored. <br/><>br/>
+
+Depending on what you are trying to achieve, you may or may not be interested in what the parent implementation has to offer. If you want to completely bypass what the parent implementation is doing, just do your thing in your overridden event handler and don’t call the parent implementation. By the way, you call the parent implementation by doing something like this : 
+```cpp
+QWidget::keyPressEvent(event);
+```
+This is what is meant by event propagation. Events can be , and in most cases are , propagated from parent to child until an object is found, that is interested in the event. Child classes propagate to parents by calling the same event method in their parent classes.
 
 ## Events and Event classes
 
