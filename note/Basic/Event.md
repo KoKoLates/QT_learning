@@ -144,6 +144,15 @@ bool DigitFilter::eventFilter(QObject *dest, QEvent *event)
     return QObject::eventFilter(dest, event);
 }
 ```
+The event filter is also going to get all events for the object it is installed on. Once inside the `eventFilter()` method, we have to check for the event we are interested in. After that, we have to check which key was pressed, to know whether it is a digit or not. If it is we return true to signal that we don’t want this event handled any further, in other words, the event filter has done all that needs be done for this event on the target object, nobody else up the chain of event propagation should worry about it. This causes for digits not to be shown or processed when you type them on the line edit where we’re going to install the filter. <br/><br/>
+
+Assuming you have a bare bones widget project created and opened, add the DigitFilter class to the project, and drag a line edit component to the widget form. In the wiget constructor, create a filter and install it on the line edit :
+```cpp
+DigitFilter *filter = new DigitFilter(this, "line edit");
+ui->lineEdit->installEventFilter(filter);
+ui->lineEdit->setText("line edit");
+```
+This will cause for all events for the line edit to go through the `eventFilter()` method of the filter object. The filter will filter out digits and you won’t see then in the user interface when you run the application. Event filters are great when you don’t want to mess with the target object and just want to influence it’s behavior though events.
 
 ## Installing Event Filter on QApplication
 
