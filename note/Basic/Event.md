@@ -103,7 +103,7 @@ Because all events are passing through this method, you have to check which spec
 Button *button = new Button(this);
 connect(button, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 ```
-Create an instance of the button in your widget class and connect a slot to it. Run the application and you’re going to see that as you click or double click on the button, the slot is not going to be called. Instead, the message from `MyButton::event()` is going to show up.
+Create an instance of the button in your widget class and connect a slot to it. Run the application and you’re going to see that as you click or double click on the button, the slot is not going to be called. Instead, the message from `MyButton::event()` is going to show up, because the signal : `clicked()` isn't being fired. The signal is fired somewhere in the event handles of QPushButton, and we have bypassed any event handling for QPushButton whatsoever when we detect that the user is just clicking or double clicking on our button. This also shows that the `event()` method is called before any specific event handler like mousePress or keyPress is called.
 
 ## Event Filters on QObject
 
