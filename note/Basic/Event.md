@@ -162,14 +162,14 @@ class Filter : public QObject
     Q_OBJECT
     
 public:
-    explicit Filter(QObject *parent = nullptr, QString msg);
+    explicit Filter(QObject *parent = nullptr, QString msg = "");
     
 protected:
     bool eventFilter(QObject *dest, QEvent *event);
     
 private:
     QString message;
-}
+};
 ```
 It's just a regular filter as we seen before, and its implement is :
 ```cpp
@@ -197,7 +197,7 @@ int main(int argc, char *argv[])
     
     Widget w;
     
-    Filter *filter = new Filter("FromMain, &w);
+    Filter *filter = new Filter(&w, "Main");
     a.installEventFilter(filter);
     
     w.show();
