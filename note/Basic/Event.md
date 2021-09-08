@@ -61,7 +61,16 @@ Events are all subclasses of the QEvent class and each child class adds new fiel
 * [Instance](https://github.com/KoKoLates/Qt-learning/blob/main/note/Basic/Event%20Class.cpp)
 * [Event classes](https://doc.qt.io/qt-5/events.html)
 
+Quoting the documentation,there are five different ways that events can be processed; subclassing your class of interest and overriding event ,reimplementing this virtual function is just one of them : 
+1. Reimplementing the event you interest, this is the most common, easiest, and least powerful way.
+2. Reimplementing `QCoreApplication::notify`. This is very powerful, providing complete control; but only one subclass can be active at a time.
+3. Installing an event filter on `QCoreApplication::instance()`. Such an event filter is able to process all events for all widgets, so it’s just as powerful as reimplementing `notify()`; furthermore, it’s possible to have more than one application-global event filter. Global event filters even see mouse events for disabled widgets. Note that application event filters are only called for objects that live in the main thread.
+4. Reimplementing `QObject::event()`.
+5. Installing an event filter on the object. Such an event filter gets all the events.
+
+
 ## Reimplementing QObject : : event ( )
+Ones could use that method by subclassing your class of interset but instead of implementing specific event handlers, just impliement the `QObject::event()` override. This allows all events to pass through your override and you can decide which ones to handle and which ones to channel up the event propagation chain.
 
 ## Event Filters on QObject
 
