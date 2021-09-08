@@ -97,7 +97,7 @@ void Widget::keyPressEvent(QKeyEvent *event)
     if (event->modifiers() & Qt::ShiftModifier){
         modifiers += "Shift ";
     }
-    if (event->modifiers() &  Qt::ControlModifier){
+    if (event->modifiers() & Qt::ControlModifier){
         modifiers += "Control ";
     }
     if (event->modifiers() & Qt::AltModifier){
