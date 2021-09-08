@@ -106,6 +106,44 @@ connect(button, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 Create an instance of the button in your widget class and connect a slot to it. Run the application and you’re going to see that as you click or double click on the button, the slot is not going to be called. Instead, the message from `MyButton::event()` is going to show up, because the signal : `clicked()` isn't being fired. The signal is fired somewhere in the event handles of QPushButton, and we have bypassed any event handling for QPushButton whatsoever when we detect that the user is just clicking or double clicking on our button. This also shows that the `event()` method is called before any specific event handler like mousePress or keyPress is called.
 
 ## Event Filters on QObject
+Event filters are subclasses of the QObject class that you can attach to a given object to intercept events before they reach the target object. Ones could install the filter by calling `QObject::installEventFilter()` on the object. An event filter gets to process events before the target object does, allowing it to inspect and discard the events as required. An existing event filter can be removed using the `QObject::removeEventFilter()` function, and intercept events in the `eventFilter()` method that you have to override.
+```cpp
+class DigitFilter : public QObject
+{
+    Q_OBJECT
+    
+public:
+    explicit DigitFilter(QObject *parent = nullptr, QString msg = "");
+    
+protected:
+    bool eventFilter(QObject *dest, QEvent *event);
+    
+private:
+    QString message;
+};
+```
+The implementation :
+```cpp
+DigitFilter::DigitFilter(QObject *parent, QString msg) : QObject(parent)
+{
+    message = msg;
+}
+
+bool DigitFilter::eventFilter(QObject *dest, QEvent *event)
+{
+    if(event->type() == QEvent::keyPress)
+    {
+        qDebug() << "Event filter for " << message << " triggered";
+        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+        static QString digits = QString("1234567890");
+        if(digits.indexOf(keyEvent->text()) != -1)
+            //Returning true here signals that the event has been handled and it's not sent to the destination.
+            return true;
+    }
+    //This sends the event to be handled by the filter of the base class or the event handlers of the base class themselves
+    return QObject::eventFilter(dest, event);
+}
+```
 
 ## Installing Event Filter on QApplication
 
