@@ -61,7 +61,7 @@ Events are all subclasses of the QEvent class and each child class adds new fiel
 * [Instance](https://github.com/KoKoLates/Qt-learning/blob/main/note/Basic/Event%20Class.cpp)
 * [Event classes](https://doc.qt.io/qt-5/events.html)
 
-## Reimplementing QObject :: event( )
+## Reimplementing `QObject::event()`
 
 ## Event Filters on QObject
 
