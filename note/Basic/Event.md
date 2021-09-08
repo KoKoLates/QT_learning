@@ -207,5 +207,48 @@ int main(int argc, char *argv[])
 ```
 If you create buttons in your form and attach slots to respond when they are clicked, after running the application, you’re going to see that when you click on the buttons, the slots are not going to respond, instead you’re going to see the filter respond in the debug output message.
 
+## Subclassing QApplication and implementing notify( )
+`QApplication::notify()` is the method that is called by Qt to send the event to the receiver. Using a subclass of QApplication in your Qt app and overriding the virtual method `notify()` is by far the most powerful method to intercept events and handle them. The way you use it is strikingly similar to what we’ve seen with `QObject::event()` and `QObject::eventFilter`. <br/><br/>
+
+Subclass QApplication :
+```cpp
+class Application : public QApplication
+{
+    Q_OBJECT
+    
+public:
+    eplicit Application(int &argc, char **argv);
+    
+protected:
+    bool notify(QObject *receiver, QEvent *event);
+};
+```
+Then override the `notify()` method :
+```cpp
+Application::Application(int &argc, char **argv) : 
+    QApplication(argc ,argv)
+{
+}
+ 
+bool Application::notify(QObject *receiver, QEvent *event)
+{
+    Q_UNUSED(receiver);
+    if ( event->type() == QEvent::MouseButtonPress || event->type() == QEvent::MouseButtonDblClick){
+        qDebug() << "Notify method of Application called";
+        return true;
+    }
+   return QApplication::notify(receiver, event);
+}
+```
+ Where we’re just filtering out mouse clicks and double clicks. You use this subclass of QApplication where you would use a regular QApplication class.
+ ```CPP
+ int main(int argc, char *argv[])
+{
+    Application a(argc, argv);
+    Widget w;
+    w.show();
+    return a.exec();
+}
+ ```
 
 ## [Reference](https://www.learnqt.guide/events/working-with-events/)
