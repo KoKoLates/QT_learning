@@ -22,7 +22,7 @@ private:
     
 protected:
     void closeEvent(QCloseEvent *event);
-}
+};
 ```
 and implement the event function in the implementation file :
 ```cpp
@@ -61,7 +61,7 @@ Events are all subclasses of the QEvent class and each child class adds new fiel
 * [Instance](https://github.com/KoKoLates/Qt-learning/blob/main/note/Basic/Event%20Class.cpp)
 * [Event classes](https://doc.qt.io/qt-5/events.html)
 
-Quoting the documentation,there are five different ways that events can be processed; subclassing your class of interest and overriding event ,reimplementing this virtual function is just one of them : 
+Quoting the documentation,there are five different ways that events can be processed; subclassing your class of interest and overriding event, reimplementing this virtual function is just one of them : 
 1. Reimplementing the event you interest, this is the most common, easiest, and least powerful way.
 2. Reimplementing `QCoreApplication::notify`. This is very powerful, providing complete control; but only one subclass can be active at a time.
 3. Installing an event filter on `QCoreApplication::instance()`. Such an event filter is able to process all events for all widgets, so it’s just as powerful as reimplementing `notify()`; furthermore, it’s possible to have more than one application-global event filter. Global event filters even see mouse events for disabled widgets. Note that application event filters are only called for objects that live in the main thread.
@@ -71,6 +71,39 @@ Quoting the documentation,there are five different ways that events can be proce
 
 ## Reimplementing QObject : : event ( )
 Ones could use that method by subclassing your class of interset but instead of implementing specific event handlers, just impliement the `QObject::event()` override. This allows all events to pass through your override and you can decide which ones to handle and which ones to channel up the event propagation chain.
+```cpp
+class Button : public QPushButton
+{
+    Q_OBJECT
+    
+public:
+    explicit MyButton(QWidget *parent = nullptr);
+    
+protected:
+    bool event(QEvent * event) override;
+};
+```
+The implemention cpp file : 
+```cpp
+bool Button::event(QEvent *event)
+{
+    if( (event->type() == QEvent::MouseButtonPress) || (event->type() == QEvent::MouseButtonDblClick))
+    {
+        qDebug() << "MyButton::Event : Pressed the MyButton instance. Consuming event";
+        return true;
+    }
+    //Remember to call the event method of the base class for the events that you don't handle
+    return QPushButton::event(event);
+}
+```
+The return data of that `event()` method is bool. The logic here is very similar to what we’ve seen with the `accept()` and `ignore()` methods. When you return true, you are telling the Qt system that the event has been handled and a returned false means that the event has been ignored. <br/><br/>
+
+Because all events are passing through this method, you have to check which specific event you received. You do that by relying on the `Event::Type` enum. Note that you have to call the parent implementation of `event()` for all events that you don’t handle. Otherwise you’re going to end up with an unresponsive widget for other events. This method is good if for some reason you want to channel all your events through one place.
+```cpp
+Button *button = new Button(this);
+connect(button, SIGNAL(clicked()), this, SLOT(buttonClicked()));
+```
+Create an instance of the button in your widget class and connect a slot to it. Run the application and you’re going to see that as you click or double click on the button, the slot is not going to be called. Instead, the message from `MyButton::event()` is going to show up.
 
 ## Event Filters on QObject
 
