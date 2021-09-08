@@ -70,7 +70,7 @@ Quoting the documentation,there are five different ways that events can be proce
 
 
 ## Reimplementing QObject : : event ( )
-Ones could use that method by subclassing your class of interset but instead of implementing specific event handlers, just impliement the `QObject::event()` override. This allows all events to pass through your override and you can decide which ones to handle and which ones to channel up the event propagation chain.
+Ones could use that method by subclassing your class of interest but instead of implementing specific event handlers, just impliement the `QObject::event()` override. This allows all events to pass through your override and you can decide which ones to handle and which ones to channel up the event propagation chain.
 ```cpp
 class Button : public QPushButton
 {
