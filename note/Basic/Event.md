@@ -57,6 +57,15 @@ QWidget::keyPressEvent(event);
 This is what is meant by event propagation. Events can be , and in most cases are , propagated from parent to child until an object is found, that is interested in the event. Child classes propagate to parents by calling the same event method in their parent classes.
 
 ## Events and Event classes
-Events are all subclasses of the QEvent class and each child class adds new fields and methods to help fulfill the purpose it was made for. Below is a widget subclass with a few more events for you to play with.
+Events are all subclasses of the QEvent class and each child class adds new fields and methods to help fulfill the purpose it was made for. Below is a widget subclass with a few more events for you to play with.<br/><br/>
+
+* [Instance](https://github.com/KoKoLates/Qt-learning/blob/main/note/Basic/Event%20Class.cpp)
+* [Event classes](https://doc.qt.io/qt-5/events.html)
+
+## Reimplementing QObject::event()
+
+## Event Filters on QObject
+
+## Installing Event Filter on QApplication
 
 ## [Reference](https://www.learnqt.guide/events/working-with-events/)
