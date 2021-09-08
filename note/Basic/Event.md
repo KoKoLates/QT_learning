@@ -155,5 +155,57 @@ ui->lineEdit->setText("line edit");
 This will cause for all events for the line edit to go through the `eventFilter()` method of the filter object. The filter will filter out digits and you won’t see then in the user interface when you run the application. Event filters are great when you don’t want to mess with the target object and just want to influence it’s behavior though events.
 
 ## Installing Event Filter on QApplication
+Besides installing filters on regular QObjects, you can also install them on the single QApplication instance in your application. Obviously , event filters on QApplication are called before any event filter installed on any other object in the application.
+```cpp
+class Filter : public QObject
+{
+    Q_OBJECT
+    
+public:
+    explicit Filter(QObject *parent = nullptr, QString msg);
+    
+protected:
+    bool eventFilter(QObject *dest, QEvent *event);
+    
+private:
+    QString message;
+}
+```
+It's just a regular filter as we seen before, and its implement is :
+```cpp
+Filter::Filter(QObject *parent, QString msg) :
+    QObject(parent), message(msg)
+{
+}
+
+bool Filter::eventFilter(QObject *dest, QEvent *event)
+{
+    if(event->type() == QEvent::MouseButtonPress || event->type() == QEvent::MouseButtonDblClick)
+    {
+        qDebug() << "Event hijacked " << message;
+        return true;
+        //Event handle here and no more need to propagate
+    }
+    return QObject::eventFilter(dest, event);
+}
+```
+It’s clear that we’re filtering for mouse clicks and double clicks. Now you can full scale in craziness, and install this filter on the QApplication instance in your main function.
+```cpp
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    
+    Widget w;
+    
+    Filter *filter = new Filter("FromMain, &w);
+    a.installEventFilter(filter);
+    
+    w.show();
+    
+    return a.exec();
+}
+```
+If you create buttons in your form and attach slots to respond when they are clicked, after running the application, you’re going to see that when you click on the buttons, the slots are not going to respond, instead you’re going to see the filter respond in the debug output message.
+
 
 ## [Reference](https://www.learnqt.guide/events/working-with-events/)
