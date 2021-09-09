@@ -250,5 +250,8 @@ bool Application::notify(QObject *receiver, QEvent *event)
     return a.exec();
 }
  ```
+You could create buttons in your widget app , connect signals from buttons to slots and debug output something in the slots. If you run the app, the slots are not going to respond on button clicks because clicks and double clicks are filtered out in our `Application::notify()` override. <br/><br/>
+
+For what method should use in the application, it's better for low caliber weapons and only upgrade to heavier ones when necessary. What I usually do is just inherit the class of interest and specific event handlers. I also use filters a lot especially when I have one crafted out that I can use on many widgets or objects. 
 
 ## [Reference](https://www.learnqt.guide/events/working-with-events/)
