@@ -4,12 +4,6 @@ Qt is a widget toolkit for creating graphical user interfaces (GUI) as well as c
 ```
 git clone https://github.com/KoKoLates/Qt-learning/Qt_installation.git
 ```
-## Package deployment
-Open the Qt's command line tool that exist in the [Qt](https://github.com/KoKoLates/Qt-learning/tree/main/Qt_installation) file.
-```
-> cd bin
-> windeployq.exe release's whole path
-```
 ## Project
 Some projects of learning Qt in C++ language.
 #### [Project1 : Ordering System](https://github.com/KoKoLates/Qt-learning/tree/main/project1)
