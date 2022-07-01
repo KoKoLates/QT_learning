@@ -4,7 +4,7 @@ Signals and slots are used for communication between two objects. The signal and
 In the GUI programming, when a component (condition) is changed, it's always hoped that other components can also understand the change. More generally, we want any object could be able to communicate with other objects. For example, if the user clicks the close button, we hope that the `close()` function of the window can be executed to close the window. In order to achieve communication between objects, some toolkits use a callback mechanism. while in Qt, signals and slots are used for communication between objects. <br/><br/>
 
 A signal can be emitted when a special event occurs, such as a button being clicked, pressed or checked; and a slot is a function, which is called after the signal emitted to respond to the signal. Some signals and slots have been defined in Qt's component class, but more methods are to subclass this component, and then you can design some Slots to accept specific Signals and define corresponding functional actions. Signals and Slots can be connected through the static method connect of QObject. In addition, the processing between Signals and Slots is synchronized. <br/><br/>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt-learning/main/note/images/SignalAndSlot.PNG)
+![image](./figures/SignalAndSlot.PNG)
 
 ## Signal
 In the header file, add that code to declare a signals :

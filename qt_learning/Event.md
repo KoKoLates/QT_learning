@@ -5,7 +5,7 @@ Events can either be generated from within the application or as a result of som
 
 ## Events and Signals/Slots
 The purpose of events is somewhat the same as for signals and slots. Signals /Slots allow you to respond when something happens after all. Events are different in that they allow you to do much more low level things that deeply affect the behavior of your objects. And if you look deep, the signal and slot mechanism in Qt is itself powered by events. The `clicked()` signal of QPushButton for example, is emitted somewhere deep in the implementation of some mouse events for the QPushButton class. <br/>
-* [Signal/Slot](https://github.com/KoKoLates/Qt-learning/blob/main/note/Basic/Signal%20and%20Slot.md)
+* [Signal/Slot](./Signal%20and%20Slot.md)
 
 ## Events Using
 There are different ways you can use events in you Qt applications. Here are going to start off by showing you how you can play around with events for the QWidget class. And if it wanted to capture the close event for the widget, you would add an override of the `closeEvent()` method to your widget.
@@ -58,7 +58,7 @@ This is what is meant by event propagation. Events can be , and in most cases ar
 
 ## Events and Event classes
 Events are all subclasses of the QEvent class and each child class adds new fields and methods to help fulfill the purpose it was made for. Below is a widget subclass with a few more events for you to play with.<br/>
-* [Instance](https://github.com/KoKoLates/Qt-learning/blob/main/note/Basic/Event%20Class.cpp)
+* [Instance](./Event%20Class.cpp)
 * [Event classes](https://doc.qt.io/qt-5/events.html)
 
 Quoting the documentation,there are five different ways that events can be processed; subclassing your class of interest and overriding event, reimplementing this virtual function is just one of them : 

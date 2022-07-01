@@ -30,7 +30,7 @@ while(!input.atEnd()){QString line = input.readline();}
 Use QTextStream to package QFile in the program, use `atEnd()` function in QTextStream to test whether the text file ends, use `readLine()` to read in the data and package it as QString.
 ```cpp
 QTextStream output(&fileWrite);
-    output<<UserInput<<Qt::endl;
+output<<UserInput<<Qt::endl;
 ```
 Using the `<<` operator to write the text to the file
 ### QDataStream

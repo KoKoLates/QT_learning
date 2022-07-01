@@ -15,7 +15,7 @@ QBrush defines the filling mode of QPainter, which has some properties such as s
 
 #### Style 
 `style()` defines the filling style, using the `Qt::BrushStyle` for enumeration, the default value is `Qt::NoBrush`, that is, no filling is performed.<br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushStyle.png)
+![image](./figures/QBrushStyle.png)
 <hr/>
 
 #### Color
@@ -89,7 +89,7 @@ QRadialGradient(qreal cx, qreal cy, qreal centerRadius, qreal fx, qreal fy, qrea
 ( _cx_ , _cy_ ) is the position of the center, and ( _fx_ , _fy_ ) is the position of the focal point. Besides, using `QGradient::setSpread()` function could set the ways how does the gradient color spread in the area outside the gradient area. `QGradient::PadSpread` is the default and the color outside the gradient area is the color of end point; `QGradient::RepeatSpread` will repeat the gradient outside the area and `QGradient::ReflectSpread` will reflect, in opposite way of, the gradient outside the area.<br>
 <br>
 Note that `QGradient::Spread` only has an effect on linear gradients and radial gradients, because these two types of gradients have boundaries, while the conical gradients have a gradient range of 0 to 360 degrees, so there is no gradient boundary.<br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/QT_learning/main/note/images/QBrushGradient.png)
+![image](./figures/QBrushGradient.png)
 <hr/>
 
 #### Texture
@@ -116,7 +116,7 @@ The width of the pen `width()` or `widthF()` (float data) defines the width of t
 
 #### Style
 `style()` defines the style of the line. <br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenStyle.png) <br>
+![image](./figures/QPenStyle.png) <br>
 Ones can use `setDashPattern()` function to define the style of the pen :
 ```cpp
 QPen pen;
@@ -130,14 +130,14 @@ pen.setDashPattern(dashes);
 
 #### CapStyle
 `capStyle()` defines the end of the line drawn using QPainter. <br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle01.png) <br>
+![image](./figures/QPenCapStyle01.png) <br>
 The difference between them is that `Qt::SquareCap` is a square cap that contains the last point and is covered by half the line width; `Qt::FlatCap` does not contain the last point; `Qt::RoundCap` contains the last point Round end : <br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenCapStyle02.png)
+![image](./figures/QPenCapStyle02.png)
 <hr/>
 
 #### JoinStyle
 `joinStyle()` defines how the two lines are connected.<br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QPenJoinStyle02.png)<br><br>
+![image](./figures/QPenJoinStyle02.png)<br><br>
 <hr/>
 
 #### Construct
@@ -212,7 +212,7 @@ Sets the letter spacing for the font to spacing and the type of spacing to type.
 
 #### QFontMetrics
 After setting the font, you can use the `fontMetrics()` method to obtain the geometric information of the font, such as _ascent_ (the distance from the highest point of the character to the baseline of the character), _descent_ (the distance from the lowest point of the character to the bottom of the character), _leading_ ( The space value between two lines) _height_ (the height of the font when printing, equivalent to _ascent_ + _descent_ + 1, 1 pixel is the height of the bottom line of the character) and _linespacing_ (_height_ + _leading_).<br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QFontMetrics.PNG)
+![image](./figures/QFontMetrics.PNG)
 ### Member Functions
 Can only draw graphics in `QWidget::paintEvent`
 ```cpp
@@ -251,7 +251,7 @@ pix = pix.scaled(width*2, height*2, Qt::KeepAspectRatio);
 // Expand the width and height of the picture twice, and keep the ratio of width to height unchanged within a given rectangle
 painter.drawPix(50, 50, pix);
 ```
-![image](https://github.com/KoKoLates/Qt_learning/blob/main/note/images/AspectRatio.PNG)<br>
+![image](./figures/AspectRatio.PNG)<br>
 `Qt::IgnoreAspectRatio` does not keep the aspect ratio of the picture, `Qt::KeepAspectRatio` keeps the aspect ratio in the given rectangle and `Qt::KeepAspectRatioByExpanding`  also keeps the aspect ratio, but may exceed the given rectangle.
 <hr/>
 
