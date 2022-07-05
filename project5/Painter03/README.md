@@ -5,7 +5,7 @@ x' = m11*x + m21*y + dx
 y' = m22*y + m12*x + dy
 ```
 _dx_ and _dy_ define horizontal and vertical movement, _m11_ and _m22_ define horizontal and vertical scaling , _m12_ and _m21_ define vertical and horizontal distortion (shearing). You can use the `setMatrix()` function of `QMatrix` to set _m11_, _m12_, _m21_, _m22_, _dx_, _dy_, or directly use the `QPainter::scale()` function to scale the coordinate system; use the `QPainter::rotate()` function to rotate the coordinate system clockwise; use the `QPainter::translate()` function to translate the coordinate system; you can also use `QPainter::shear()` to surround the origin To distort the coordinate system.<br><br>
-![iamge](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QTrasform.PNG)
+![iamge](../../qt_learning/figures/QTrasform.PNG)
 ## Translate
 ```cpp
 void Dialog::paintEvent(QPaintEvent *){
@@ -79,4 +79,4 @@ void Dialog::paintEvent(QPaintEvent *){
 
 # Color Wheel
 The color wheel is drawn by setting the "hue" in HSV (Brightness, Hue, Saturation) to complete the rainbow-like effect. The "hue" (Hue) in HSV is the spectroscopic light splitting, mainly red, orange, yellow, Eight main hues of green, blue, purple. "Brightness" is the performance of light and dark, from white to black. In the PCCS (Practical Color Coordinate System) color matching system, it is divided into white, light gray (light, dark), light medium gray, medium gray, Dark gray, dark gray (light, dark), black. "Saturation" is the degree of color saturation. The highest saturation is called "pure color", and the lowest is "no color".<br><br>
-![image](https://raw.githubusercontent.com/KoKoLates/Qt_learning/main/note/images/QMatrix.PNG)
+![image](../../qt_learning/figures/QMatrix.PNG)
